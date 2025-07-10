@@ -2,19 +2,38 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Люки{% endblock %}</title>
-     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}РОСПОЛИМЕР ПРОМ | Качественные изделия из полимера{% endblock %}</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
+    
 </head>
 <body>
-<nav>
-    <a href="{% url 'home' %}">Главная</a> |
-    <a href="{% url 'product_list' %}">Каталог</a> |
-    <a href="{% url 'about' %}">О нас</a>
-</nav>
+    <div class="header">
+        <div class="logo">РОСПОЛИМЕРПРОМ</div>
+        <div class="phone">8 800 505 72 32</div>
+    </div>
+    
+    <nav>
+        <a href="{% url 'home' %}">Главная</a>
+        <a href="{% url 'product_list' %}">Каталог</a>
+        <a href="{% url 'about' %}">О нас</a>
+    </nav>
 
-<div class="content">
-    {% block content %}{% endblock %}
-</div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-address">
+            <div>юридический и фактический:</div>
+            <div>г.Аксай</div>
+            <div>адрес производства:</div>
+            <div>г. Аксай</div>
+        </div>
+        <div class="footer-contacts">
+            8 800 505 72 32
+        </div>
+    </footer>
 </body>
 </html>
