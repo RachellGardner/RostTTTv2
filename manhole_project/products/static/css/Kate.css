@@ -1,83 +1,225 @@
-/* Основные стили */
-.company-header {
-    text-align: center;
-    padding: 3rem 1rem;
-    background-color: #f8f9fa;
-    margin-bottom: 2rem;
+/* Base Styles */
+:root {
+    --primary-color: #0066cc;
+    --primary-dark: #0055aa;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 }
 
-.company-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
 }
 
-.lead {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.btn {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    text-decoration: none;
-    border-radius: 0.3rem;
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{% static "images/factory-bg.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-.btn-primary {
-    background-color: #007bff;
-    color: white;
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    color: var(--white);
+    z-index: 2;
 }
 
-.btn-outline {
-    border: 1px solid #007bff;
-    color: #007bff;
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Сетка продуктов */
-.products-grid {
+.hero-subtitle {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-cta {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.hero-cta:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* Product Grid */
+.product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 0 1rem;
-    margin-bottom: 3rem;
+    padding: 5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .product-card {
-    border: 1px solid #dee2e6;
-    padding: 1.5rem;
-    border-radius: 0.3rem;
-    text-align: center;
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    height: 400px;
 }
 
-/* Секция партнеров */
-.partners {
-    text-align: center;
-    margin: 3rem 0;
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.partner-logos {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
+.product-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: var(--white);
 }
 
-/* О компании */
+.product-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.product-desc {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.product-button {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.product-button:hover {
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
+/* About Section */
 .about-section {
+    background-color: var(--light-bg);
+    padding: 5rem 2rem;
+}
+
+.about-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.about-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.advantages-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.advantages-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.advantages-list li::before {
+    content: "✓";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
 }
 
 .product-types {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
 .product-type {
-    background-color: #f8f9fa;
+    background-color: var(--white);
     padding: 1.5rem;
-    border-radius: 0.3rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
+
+.product-type h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .about-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+

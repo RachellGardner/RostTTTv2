@@ -4,71 +4,87 @@
 {% block title %}ООО "РОСТПОЛИМЕРПРОМ" - Производитель полимерных люков{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/Di.css' %}">  <!-- Добавьте эту строку -->
+<link rel="stylesheet" href="{% static 'css/Kate.css' %}">  <!-- Добавьте эту строку -->
 
-<div class="company-header">
-    <h1>ООО "РОСТНОЛИМЕРПРОМ"</h1>
-    <p class="lead">является крупнейшим производителем полимерно-композитных изделий в России.</p>
-    <a href="#" class="btn btn-primary">ОСТАВИТЬ ЗАЯВКУ</a>
-</div>
+<main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1 class="hero-title">ООО "РОСТПОЛИМЕРПРОМ"</h1>
+            <p class="hero-subtitle">Крупнейший производитель полимерно-композитных изделий в России</p>
+            <button class="hero-cta">Оставить заявку</button>
+        </div>
+    </section>
 
-<div class="products-grid">
-    <div class="product-card">
-        <h2>Канализационные люки</h2>
-        <p>Текст, который размещают внизу заголовка, чтобы раскрыть детали</p>
-        <a href="#" class="btn btn-outline">СМОТРЕТЬ</a>
-    </div>
-
-    <div class="product-card">
-        <h2>Смотровые колодцы</h2>
-        <p>Текст, который размещают внизу заголовка, чтобы раскрыть детали</p>
-        <a href="#" class="btn btn-outline">СМОТРЕТЬ</a>
-    </div>
-
-    <div class="product-card">
-        <h2>Дождеприемники</h2>
-        <p>Текст, который размещают внизу заголовка, чтобы раскрыть детали</p>
-        <a href="#" class="btn btn-outline">СМОТРЕТЬ</a>
-    </div>
-
-    <div class="product-card">
-        <h2>Водоотводные лотки</h2>
-        <p>Текст, который размещают внизу заголовка, чтобы раскрыть детали</p>
-        <a href="#" class="btn btn-outline">СМОТРЕТЬ</a>
-    </div>
-</div>
-
-<div class="partners">
-    <h3>Наши партнеры:</h3>
-    <div class="partner-logos">
-        <span>Ростелеком</span>
-        <span>СИНТЕКТ ОПТОВ</span>
-        <span>СИНТЕХОМПЛАСТ</span>
-    </div>
-</div>
-
-<div class="about-section">
-    <h2>О компании</h2>
-    <div class="product-types">
-        <div class="product-type">
-            <h3>Легкий люк ЛМ (A15)</h3>
-            <p>К этой категории относятся люки с самым небольшим классом нагрузки. Область применения этих люков ограничена тротуарами, газонами и другими территориями, не предназначенными для проезда транспорта. Канализационные люки данного типа идеальны для использования на колодцах под дождевую канализацию, на территориях частных домов и приусадебных участках, в городских парках, скверах и зонах зеленых насаждений.</p>
+    <!-- Product Grid -->
+    <section class="product-grid">
+        <div class="product-card">
+            <div class="product-content">
+                <img src="{% static 'img/lok.png' %}" alt="Pills Image" class="img-fluid rounded">
+                <h3 class="product-title">Композитные люки</h3>
+                <p class="product-desc">Современные решения для городской инфраструктуры</p>
+                <button class="product-button">Подробнее</button>
+            </div>
         </div>
 
-        <div class="product-type">
-            <h3>Люк средний С (B125)</h3>
-            <p>Предназначен для установки на территории автостоянок и проезжей части городских парков.</p>
+        <div class="product-card">
+            <div class="product-content">
+                <h3 class="product-title">Смотровые колодцы</h3>
+                <p class="product-desc">Надежные конструкции для коммунальных служб</p>
+                <button class="product-button">Подробнее</button>
+            </div>
         </div>
 
-        <div class="product-type">
-            <h3>Тяжелый люк Т (C250)</h3>
-            <p>Имеет высокий класс нагрузки, что позволяет использовать их на городских автомобильных дорогах с интенсивным движением и других территориях с повышенной нагрузкой.</p>
+        <div class="product-card">
+            <div class="product-content">
+                <h3 class="product-title">Дождеприемники</h3>
+                <p class="product-desc">Эффективные системы водоотведения</p>
+                <button class="product-button">Подробнее</button>
+            </div>
         </div>
 
-        <div class="product-type">
-            <h3>Люк для телефонных компаний</h3>
-            <p>В люке данного типа разработана вторая крышка с уникальным запорным устройством и индивидуальным ключом. Конструкция имеет значительно увеличенную прочность.</p>
+        <div class="product-card">
+            <div class="product-content">
+                <h3 class="product-title">Водоотводные лотки</h3>
+                <p class="product-desc">Прочные и долговечные решения</p>
+                <button class="product-button">Подробнее</button>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+
+    <!-- About Company -->
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="section-title">О компании</h2>
+            <div class="about-columns">
+                <div class="about-text">
+                    <p>Мы специализируемся на производстве полимерно-композитных изделий для городской инфраструктуры. Наша продукция соответствует всем современным стандартам качества.</p>
+                    
+                    <h3>Наши преимущества:</h3>
+                    <ul class="advantages-list">
+                        <li>Собственное производство</li>
+                        <li>Контроль качества на всех этапах</li>
+                        <li>Гибкие условия сотрудничества</li>
+                        <li>Сертифицированная продукция</li>
+                    </ul>
+                </div>
+                
+                <div class="product-types">
+                    <div class="product-type">
+                        <h4>Люк ЛМ (A15)</h4>
+                        <p>Для пешеходных зон и газонов</p>
+                    </div>
+                    <div class="product-type">
+                        <h4>Люк С (B125)</h4>
+                        <p>Для парковок и дворовых территорий</p>
+                    </div>
+                    <div class="product-type">
+                        <h4>Люк Т (C250)</h4>
+                        <p>Для проезжей части дорог</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}
