@@ -4,5 +4,6 @@ from products import views  # Явный импорт views из приложе�
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path('', include('products.urls')),  # Подключение других URL
 ]
