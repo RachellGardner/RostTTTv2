@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Product(models.Model):
     name = models.CharField("Название", max_length=200)
     description = models.TextField("Описание")
@@ -12,6 +13,37 @@ class Product(models.Model):
 
     class Meta:
         abstract = True
+         
+    def get_specifications(self):
+        specs = []
+        
+        # Добавляем общие характеристики
+        if self.specifications:
+            specs.append(self.specifications)
+        
+        # Получаем все поля модели (включая дочерние)
+        for field in self._meta.get_fields():
+            # Пропускаем служебные поля и поля базового класса
+            if field.name in ['id', 'product_ptr', 'created_at', 'name', 'description', 'image', 'specifications']:
+                continue
+                
+            # Получаем значение поля
+            value = getattr(self, field.name, None)
+            
+            # Пропускаем пустые значения
+            if not value:
+                continue
+                
+            # Получаем человекочитаемое название поля
+            verbose_name = getattr(field, 'verbose_name', field.name)
+            
+            # Для полей с choices показываем значение, а не ключ
+            if hasattr(field, 'choices') and field.choices:
+                value = dict(field.choices).get(value, value)
+            
+            specs.append(f"{verbose_name}: {value}")
+        
+        return specs
 
 
 # --- Люк ---
@@ -87,3 +119,5 @@ class Cherepitsa(Product):
     class Meta:
         verbose_name = "Черепица"
         verbose_name_plural = "Черепица"
+
+        

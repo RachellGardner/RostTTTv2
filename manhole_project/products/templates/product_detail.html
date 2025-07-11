@@ -1,13 +1,34 @@
 {% extends "base.html" %}
-{% block title %}{{ product.name }}{% endblock %}
+{% load static %}
+
+{% block title %}{{ product.name }} | ООО "РОСТПОЛИМЕРПРОМ"{% endblock %}
+
 {% block content %}
-<h1>{{ product.name }}</h1>
-{% if product.image %}
-<img src="{{ product.image.url }}" alt="" style="max-width: 500px;">
-<br><br>
-{% endif %}
-<p>{{ product.description }}</p>
-<h3>Характеристики:</h3>
-<p>{{ product.specifications }}</p>
-<a href="{% url 'product_list' %}">Назад в каталог</a>
+<link rel="stylesheet" href="{% static 'css/Di.css' %}?v=1.2">
+
+<div class="product-card">
+    {% if product.image %}
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+    {% endif %}
+    
+    <div class="product-content">
+        <h1>{{ product.name }}</h1>
+        <p class="description">{{ product.description }}</p>
+        
+        <div class="specs">
+            <h2>Характеристики</h2>
+            <ul>
+                {% for spec in product.get_specifications %}
+                    <li>{{ spec }}</li>
+                {% empty %}
+                    <li>Характеристики отсутствуют</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="actions">
+            <a href="{% url 'product_list' %}" class="back-link">← Назад</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -19,15 +19,18 @@ def product_list(request):
     ))
     return render(request, 'product_list.html', {'products': products})
 
+
 def product_detail(request, pk):
-    # Проверяем во всех моделях
+    # Проверяем все модели по очереди
+    product = None
     for model in [Lyuk, Dozhdiepriemnik, VodootvodnyyLotok, TrotuarnayaPlitka, Cherepitsa]:
         try:
             product = model.objects.get(pk=pk)
-            return render(request, 'product_detail.html', {'product': product})
+            break
         except model.DoesNotExist:
             continue
-
-    # Если не найден
-    from django.http import Http404
-    raise Http404("Товар не найден")
+    
+    if not product:
+        raise Http404("Продукт не найден")
+    
+    return render(request, 'product_detail.html', {'product': product})
