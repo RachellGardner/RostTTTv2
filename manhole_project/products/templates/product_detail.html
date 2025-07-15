@@ -4,31 +4,219 @@
 {% block title %}{{ product.name }} | ООО "РОСТПОЛИМЕРПРОМ"{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/Di.css' %}?v=1.2">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-<div class="product-card">
-    {% if product.image %}
-    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-    {% endif %}
-    
-    <div class="product-content">
-        <h1>{{ product.name }}</h1>
-        <p class="description">{{ product.description }}</p>
+<div class="product-container">
+    <div class="product-gallery-container">
+        <div class="swiper product-gallery">
+            <div class="swiper-wrapper">
+                {% if product.image %}
+                <div class="swiper-slide">
+                    <div class="image-container">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% for image in product_images %}
+                <div class="swiper-slide">
+                    <div class="image-container">
+                        <img src="{{ image.image.url }}" alt="{{ product.name }}" class="product-image">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
         
-        <div class="specs">
-            <h2>Характеристики</h2>
-            <ul>
+        {% if product.image or product_images %}
+        <div class="swiper-controls">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="product-info">
+        <h1 class="product-title">{{ product.name }}</h1>
+        {% if product.description %}
+        <div class="product-description">
+            <p>{{ product.description }}</p>
+        </div>
+        {% endif %}
+        
+        <div class="product-specs">
+            <h2 class="specs-title">Характеристики</h2>
+            <ul class="specs-list">
                 {% for spec in product.get_specifications %}
-                    <li>{{ spec }}</li>
+                    <li class="spec-item">{{ spec }}</li>
                 {% empty %}
-                    <li>Характеристики отсутствуют</li>
+                    <li class="spec-item">Характеристики отсутствуют</li>
                 {% endfor %}
             </ul>
         </div>
         
-        <div class="actions">
-            <a href="{% url 'product_list' %}" class="back-link">← Назад</a>
+        <div class="product-actions">
+            <a href="{% url 'product_list' %}" class="back-button">← Вернуться в каталог</a>
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiper = new Swiper('.product-gallery', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'fraction',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    });
+</script>
+
+<style>
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .product-gallery-container {
+        flex: 1;
+        min-width: 300px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .product-info {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .swiper {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 10px;
+    }
+    
+    .image-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8f8f8;
+    }
+    
+    .product-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    .swiper-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .swiper-button-prev,
+    .swiper-button-next {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        margin-top: 0;
+        color: #333;
+        background: transparent;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+    
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+        background: #f0f0f0;
+    }
+    
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .swiper-pagination {
+        position: relative;
+        width: auto;
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .product-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .product-description {
+        margin-bottom: 25px;
+        line-height: 1.6;
+        color: #555;
+    }
+    
+    .specs-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .specs-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .spec-item {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        color: #555;
+    }
+    
+    .back-button {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    .back-button:hover {
+        background: #f8f8f8;
+    }
+    
+    @media (max-width: 768px) {
+        .product-container {
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .swiper {
+            height: 300px;
+        }
+    }
+</style>
 {% endblock %}

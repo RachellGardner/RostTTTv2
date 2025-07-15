@@ -1,4 +1,20 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+
+class ProductImage(models.Model):
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    image = models.ImageField("Изображение", upload_to='product_images/')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Изображение товара"
+        verbose_name_plural = "Изображения товаров"
+
+    def __str__(self):
+        return f"Изображение для {self.content_object.name if self.content_object else 'неизвестного товара'}"
 
 
 class Product(models.Model):
@@ -119,5 +135,3 @@ class Cherepitsa(Product):
     class Meta:
         verbose_name = "Черепица"
         verbose_name_plural = "Черепица"
-
-        

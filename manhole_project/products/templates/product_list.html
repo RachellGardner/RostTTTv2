@@ -1,10 +1,11 @@
 {% extends "base.html" %}
-{% load static %}  <!-- Добавьте эту строку в начале -->
+{% load static %}
 
 {% block title %}ООО "РОСТПОЛИМЕРПРОМ" - Производитель полимерных люков{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/Di.css' %}">  <!-- Добавьте эту строку -->
+<link rel="stylesheet" href="{% static 'css/Di.css' %}">
+
 <div class="minimal-catalog">
     <h1 class="h1_catalog">Каталог продукции</h1>
     
@@ -22,7 +23,7 @@
             <div class="product-info_catalog">
                 <h2>{{ product.name }}</h2>
                 <p class="description_catalog">{{ product.description|truncatechars:120 }}</p>
-                <a href="{% url 'product_detail' product.pk %}" class="more-btn_catalog">Подробнее</a>
+                <a href="{% url 'product_detail' model_type=product.model_type pk=product.pk %}" class="more-btn_catalog">Подробнее</a>
             </div>
         </div>
         {% endfor %}
