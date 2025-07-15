@@ -4,197 +4,804 @@
 {% block title %}ООО "РОСТПОЛИМЕРПРОМ" - Производитель полимерных люков{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/Kate.css' %}"> 
+<style>
+    /* Премиальная цветовая палитра */
+    :root {
+        --primary: #0a2540;
+        --primary-light: #1a4b7d;
+        --secondary: #d4af37;
+        --accent: #a78a7f;
+        --dark: #1a1a1a;
+        --light: #f9f7f5;
+        --light-gray: #f0eeec;
+        --white: #ffffff;
+        --text: #4a4a4a;
+        
+        --shadow-sm: 0 2px 8px rgba(10, 37, 64, 0.08);
+        --shadow-md: 0 4px 20px rgba(10, 37, 64, 0.12);
+        --shadow-lg: 0 15px 40px rgba(10, 37, 64, 0.15);
+        --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    
+    /* Базовые стили */
+    .about-page {
+        font-family: 'Montserrat', 'Arial', sans-serif;
+        color: var(--text);
+        line-height: 1.7;
+        background-color: var(--light);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Герой-секция с параллаксом */
+    .hero-about {
+        height: 70vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        color: var(--white);
+        text-align: center;
+        background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), 
+                    url('{% static "img/about-hero.jpg" %}') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .page-title {
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .page-title:after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+        margin: 20px auto 0;
+    }
+    
+    /* Основной контент */
+    .about-section {
+        padding: 100px 0;
+        position: relative;
+    }
+    
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+    
+    .about-text {
+        position: relative;
+    }
+    
+    .about-text h2 {
+        font-size: 36px;
+        color: var(--primary);
+        margin-bottom: 30px;
+        position: relative;
+    }
+    
+    .about-text h2:after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: var(--secondary);
+        margin: 15px 0 25px;
+    }
+    
+    .about-text p {
+        margin-bottom: 25px;
+        font-size: 17px;
+        line-height: 1.8;
+        position: relative;
+        padding-left: 20px;
+    }
+    
+    .about-text p:before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--secondary);
+        font-size: 24px;
+        line-height: 1;
+    }
+    
+    /* Блок с контактами в стиле визиток */
+    .contacts-block {
+        background: var(--white);
+        padding: 40px;
+        border-radius: 5px;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .contacts-block:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--secondary);
+    }
+    
+    .contacts-block h2 {
+        font-size: 28px;
+        color: var(--primary);
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .contact-card {
+        background: var(--light);
+        padding: 30px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        transition: var(--transition);
+        border-left: 4px solid var(--secondary);
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .contact-card h3 {
+        font-size: 20px;
+        color: var(--primary);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .contact-card h3 svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        fill: var(--secondary);
+    }
+    
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-row {
+        display: flex;
+        align-items: center;
+    }
+    
+    .contact-label {
+        font-weight: 600;
+        color: var(--primary);
+        min-width: 120px;
+    }
+    
+    .contact-value {
+        flex: 1;
+    }
+    
+    /* Таймлайн истории компании */
+    .history-section {
+        background: var(--primary);
+        color: var(--white);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .history-section:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('{% static "img/dot-pattern.png" %}') repeat;
+        opacity: 0.05;
+    }
+    
+    .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 60px auto 0;
+    }
+    
+    .timeline:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background: var(--secondary);
+        transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+        position: relative;
+        margin-bottom: 50px;
+        width: 50%;
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 50%;
+    }
+    
+    .timeline-content {
+        background: var(--white);
+        color: var(--dark);
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: var(--shadow-md);
+        position: relative;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content:after {
+        content: '';
+        position: absolute;
+        top: 30px;
+        right: -10px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid var(--white);
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content:after {
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: -10px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid var(--white);
+    }
+    
+    .timeline-year {
+        position: absolute;
+        top: 0;
+        width: 80px;
+        height: 80px;
+        background: var(--secondary);
+        color: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        font-weight: 700;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-year {
+        right: -40px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-year {
+        left: -40px;
+    }
+    
+    .timeline-title {
+        font-size: 22px;
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    
+    /* Блок с командой */
+    .team-section {
+        padding: 100px 0;
+        background: var(--light);
+    }
+    
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+    }
+    
+    .team-member {
+        background: var(--white);
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        position: relative;
+    }
+    
+    .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .member-photo {
+        height: 320px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    
+    .member-info {
+        padding: 25px;
+        text-align: center;
+    }
+    
+    .member-name {
+        font-size: 20px;
+        color: var(--primary);
+        margin-bottom: 5px;
+    }
+    
+    .member-position {
+        color: var(--secondary);
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    
+    .member-bio {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    /* Инновационный блок с технологиями */
+    .tech-section {
+        background: url('{% static "img/tech-bg.jpg" %}') no-repeat center center;
+        background-size: cover;
+        padding: 150px 0;
+        position: relative;
+        color: var(--white);
+        text-align: center;
+    }
+    
+    .tech-section:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(10, 37, 64, 0.9) 0%, rgba(10, 37, 64, 0.7) 100%);
+    }
+    
+    .tech-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .tech-title {
+        font-size: 42px;
+        margin-bottom: 30px;
+    }
+    
+    .tech-text {
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+    
+    .tech-video {
+        width: 100%;
+        max-width: 800px;
+        height: 450px;
+        background: var(--dark);
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+    
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        background: var(--secondary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .play-button:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    .play-button svg {
+        width: 30px;
+        height: 30px;
+        fill: var(--primary);
+        margin-left: 5px;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 1200px) {
+        .page-title {
+            font-size: 60px;
+        }
+        
+        .about-content {
+            gap: 40px;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .page-title {
+            font-size: 48px;
+        }
+        
+        .about-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .timeline:before {
+            left: 40px;
+        }
+        
+        .timeline-item {
+            width: 100%;
+            padding-left: 80px;
+            padding-right: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year,
+        .timeline-item:nth-child(even) .timeline-year {
+            left: 0;
+            right: auto;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content:after,
+        .timeline-item:nth-child(even) .timeline-content:after {
+            left: -10px;
+            right: auto;
+            border-right: 10px solid var(--white);
+            border-left: none;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 36px;
+        }
+        
+        .hero-about {
+            height: 60vh;
+            min-height: 500px;
+        }
+        
+        .team-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .tech-title {
+            font-size: 36px;
+        }
+        
+        .tech-video {
+            height: 350px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .page-title {
+            font-size: 32px;
+        }
+        
+        .hero-about {
+            height: 50vh;
+            min-height: 400px;
+        }
+        
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .tech-video {
+            height: 250px;
+        }
+        
+        .play-button {
+            width: 60px;
+            height: 60px;
+        }
+    }
+</style>
+
 <div class="about-page">
+    <!-- Герой-секция с параллаксом -->
+    <section class="hero-about">
+        <div class="hero-content">
+            <h1 class="page-title">О компании</h1>
+            <p class="hero-subtitle">Инновации, качество и надежность с 2008 года</p>
+        </div>
+    </section>
+
     <!-- Основной контент -->
     <section class="about-section">
-        <h1 class="page-title">О НАС</h1>
-        
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Текст о компании</h2>
-                <p>ООО "РОСТПОЛИМЕРПРОМ" - ведущий российский производитель полимерно-композитных изделий для городской инфраструктуры. Наша компания специализируется на производстве канализационных люков, смотровых колодцев и других изделий из современных композитных материалов.</p>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>РОСТПОЛИМЕРПРОМ</h2>
+                    <p>Ведущий российский производитель полимерно-композитных изделий для городской инфраструктуры. Наша компания специализируется на инновационных решениях в сфере производства канализационных люков, смотровых колодцев и систем водоотведения.</p>
+                    
+                    <p>Мы создаем продукцию, которая превосходит традиционные аналоги по ключевым параметрам: легкость монтажа, коррозионная стойкость, долговечность и экономическая эффективность. Наши изделия выдерживают экстремальные температуры от -60°C до +60°C.</p>
+                    
+                    <p>Все производственные процессы сертифицированы по международным стандартам качества ISO 9001. Мы используем только проверенные полимерные композиты европейских производителей.</p>
+                </div>
                 
-                <p>Мы предлагаем продукцию, которая превосходит традиционные чугунные аналоги по многим параметрам: легкость монтажа, коррозионная стойкость, долговечность и экономическая эффективность.</p>
-                
-                <p>Все наши изделия соответствуют требованиям ГОСТ и имеют необходимые сертификаты качества. Мы постоянно развиваемся и внедряем новые технологии производства.</p>
-            </div>
-            
-            <div class="contacts-block">
-                <h2>Контакты</h2>
-                <div class="contact-table">
-                    <div class="contact-row">
-                        <div class="contact-label">Адрес:</div>
-                        <div class="contact-value">г. Аксай, ул. Промышленная, 15</div>
+                <div class="contacts-block">
+                    <h2>Контакты</h2>
+                    
+                    <div class="contact-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Адреса
+                        </h3>
+                        <div class="contact-info">
+                            <div class="contact-row">
+                                <div class="contact-label">Офис:</div>
+                                <div class="contact-value">г. Москва, ул. Криворожская, д. 6А, стр. 2</div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-label">Производство:</div>
+                                <div class="contact-value">г. Брянск, Московский проезд, д10а</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-row">
-                        <div class="contact-label">Время работы:</div>
-                        <div class="contact-value">Пн-Пт (8.00 - 17.00)</div>
-                    </div>
-                    <div class="contact-row">
-                        <div class="contact-label">Телефон:</div>
-                        <div class="contact-value">8 800 505 72 32</div>
-                    </div>
-                    <div class="contact-row">
-                        <div class="contact-label">Email:</div>
-                        <div class="contact-value">INFO@ROSTPOLIMERPROM.RU</div>
+                    
+                    <div class="contact-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                            </svg>
+                            Контакты
+                        </h3>
+                        <div class="contact-info">
+                            <div class="contact-row">
+                                <div class="contact-label">Телефон:</div>
+                                <div class="contact-value">8 800 505 72 32</div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-label">Email:</div>
+                                <div class="contact-value">INFO@ROSTPOLIMERPROM.RU</div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-label">Часы работы:</div>
+                                <div class="contact-value">Пн-Пт: 8:00-17:00</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Информационные блоки -->
-   <div class="map-container">
-        <h2>Мы на карте</h2>
-        <div id="yandex-map" style="width: 100%; height: 400px;"></div>
-        
-        <div class="map-addresses">
-            <div class="map-address">
-                <h3>Юридический адрес:</h3>
-                <p>117638, Россия, г. Москва, ул. Криворожская, д. 6А, стр. 2, пом. 236</p>
-                <button class="show-on-map" data-coords="55.665542, 37.590737">Показать на карте</button>
-            </div>
+    <!-- История компании в виде таймлайна -->
+    <section class="history-section">
+        <div class="container">
+            <h2 class="section-title">Наша история</h2>
             
-            <div class="map-address">
-                <h3>Адрес производства:</h3>
-                <p>г. Брянск, Московский проезд, д10а</p>
-                <button class="show-on-map" data-coords="53.243562, 34.363407">Показать на карте</button>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2008</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Основание компании</h3>
+                        <p>Создание производства полимерных изделий в Брянске. Первая партия люков для частного сектора.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2012</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Сертификация продукции</h3>
+                        <p>Получение полного пакета сертификатов соответствия. Начало поставок для муниципальных нужд.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Технологический прорыв</h3>
+                        <p>Внедрение инновационной технологии армирования полимеров. Увеличение нагрузочной способности продукции на 40%.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Расширение производства</h3>
+                        <p>Запуск второй производственной линии. Увеличение мощностей до 50 000 изделий в месяц.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Международное признание</h3>
+                        <p>Начало экспорта продукции в страны СНГ. Получение награды "Лучший промышленный продукт года".</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Команда -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Наша команда</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo" style="background-image: url('{% static 'img/team/ceo.jpg' %}')"></div>
+                    <div class="member-info">
+                        <h3 class="member-name">Иван Петров</h3>
+                        <p class="member-position">Генеральный директор</p>
+                        <p class="member-bio">Основатель компании, эксперт в области полимерных материалов с 20-летним опытом.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo" style="background-image: url('{% static 'img/team/cto.jpg' %}')"></div>
+                    <div class="member-info">
+                        <h3 class="member-name">Алексей Смирнов</h3>
+                        <p class="member-position">Технический директор</p>
+                        <p class="member-bio">Автор 15 патентов в области композитных материалов, руководитель R&D отдела.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo" style="background-image: url('{% static 'img/team/production.jpg' %}')"></div>
+                    <div class="member-info">
+                        <h3 class="member-name">Ольга Иванова</h3>
+                        <p class="member-position">Директор по производству</p>
+                        <p class="member-bio">Обеспечивает бесперебойную работу производства и контроль качества.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo" style="background-image: url('{% static 'img/team/sales.jpg' %}')"></div>
+                    <div class="member-info">
+                        <h3 class="member-name">Дмитрий Козлов</h3>
+                        <p class="member-position">Директор по продажам</p>
+                        <p class="member-bio">Развитие дилерской сети и ключевых клиентов по всей России и СНГ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Инновационный блок с технологиями -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="tech-content">
+                <h2 class="tech-title">Наши технологии</h2>
+                <p class="tech-text">Мы используем передовые методы производства и уникальные полимерные композиции, разработанные совместно с ведущими научными институтами страны.</p>
+                
+                <div class="tech-video">
+                    <div class="play-button">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
-
-
-<!-- API Яндекс.Карт -->
-<script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_api_ключ&lang=ru_RU" type="text/javascript"></script>
-<script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-        // Инициализация карты
-        ymaps.ready(init);
-        
-        function init() {
-            var myMap = new ymaps.Map("yandex-map", {
-                center: [55.665542, 37.590737], // Москва по умолчанию
-                zoom: 15
-            });
-            
-            // Добавляем метки
-            var moscowPlacemark = new ymaps.Placemark([55.665542, 37.590737], {
-                hintContent: 'Офис в Москве',
-                balloonContent: 'Юридический адрес: ул. Криворожская, д. 6А, стр. 2'
-            });
-            
-            var bryanskPlacemark = new ymaps.Placemark([53.243562, 34.363407], {
-                hintContent: 'Производство в Брянске',
-                balloonContent: 'Адрес производства: Московский проезд, д10а'
-            });
-            
-            myMap.geoObjects.add(moscowPlacemark);
-            myMap.geoObjects.add(bryanskPlacemark);
-            
-            // Обработчики для кнопок
-            document.querySelectorAll('.show-on-map').forEach(button => {
-                button.addEventListener('click', function() {
-                    const coords = this.getAttribute('data-coords').split(',');
-                    myMap.setCenter(coords, 17, {
-                        checkZoomRange: true
-                    });
-                });
-            });
-        }
-    });
-</script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Функция для анимации элементов
-    function animateElements() {
-        // Все элементы с классом .js-animate
-        const elements = document.querySelectorAll('.js-animate');
+    // Параллакс эффект для героя
+    document.addEventListener('DOMContentLoaded', function() {
+        const hero = document.querySelector('.hero-about');
+        if (hero) {
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.pageYOffset;
+                hero.style.backgroundPositionY = scrollPosition * 0.3 + 'px';
+            });
+        }
         
-        // Разбиваем элементы на группы для последовательной анимации
-        const groups = [
-            'h1, h2, h3',               // Заголовки
-            '.about-text p',             // Параграфы
-            '.contact-table',            // Контактная информация
-            '#yandex-map',               // Карта
-            '.map-address',              // Адреса
-            '.show-on-map'               // Кнопки
-        ];
-        
-        // Анимация для каждой группы
-        groups.forEach((selector, groupIndex) => {
-            const groupElements = document.querySelectorAll(selector);
+        // Анимация таймлайна
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        if (timelineItems.length > 0) {
+            const animateTimeline = function() {
+                timelineItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 200);
+                });
+            };
             
-            groupElements.forEach((el, index) => {
-                // Добавляем класс для анимации
-                el.classList.add('js-animate');
-                
-                // Начальные стили
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'none';
-                
-                // Задержка для последовательного появления
-                setTimeout(() => {
-                    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                    
-                    // Дополнительная анимация для кнопок
-                    if (el.classList.contains('show-on-map')) {
-                        setTimeout(() => {
-                            el.style.transform = 'scale(1.05)';
-                            setTimeout(() => {
-                                el.style.transform = 'scale(1)';
-                            }, 300);
-                        }, 600 + (index * 100));
+            // Запуск анимации при попадании в область видимости
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateTimeline();
+                        observer.unobserve(entry.target);
                     }
-                }, 200 + (groupIndex * 200) + (index * 100));
+                });
+            }, { threshold: 0.3 });
+            
+            observer.observe(document.querySelector('.timeline'));
+        }
+        
+        // Воспроизведение видео
+        const playButton = document.querySelector('.play-button');
+        if (playButton) {
+            playButton.addEventListener('click', function() {
+                this.style.display = 'none';
+                const video = document.createElement('iframe');
+                video.setAttribute('src', 'https://www.youtube.com/embed/ВАШ_КОД_ВИДЕО?autoplay=1');
+                video.setAttribute('frameborder', '0');
+                video.setAttribute('allowfullscreen', '1');
+                video.style.width = '100%';
+                video.style.height = '100%';
+                document.querySelector('.tech-video').appendChild(video);
+            });
+        }
+        
+        // Анимация карточек команды
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.querySelector('.member-photo').style.transform = 'scale(1.05)';
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.querySelector('.member-photo').style.transform = 'scale(1)';
             });
         });
-        
-        // Анимация для карты (особый случай)
-        const map = document.getElementById('yandex-map');
-        if (map) {
-            setTimeout(() => {
-                map.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-                map.style.opacity = '1';
-                map.style.transform = 'scale(1)';
-                
-                // Плавное появление меток на карте
-                setTimeout(() => {
-                    if (typeof ymaps !== 'undefined') {
-                        ymaps.ready(function() {
-                            const placemarks = document.querySelectorAll('.ymaps-2-1-79-placemark-overlay');
-                            placemarks.forEach((pm, i) => {
-                                setTimeout(() => {
-                                    pm.style.transition = 'opacity 0.5s ease-out';
-                                    pm.style.opacity = '1';
-                                }, i * 300);
-                            });
-                        });
-                    }
-                }, 1000);
-            }, 1000);
-        }
-    }
-    
-    // Запускаем анимацию
-    animateElements();
-    
-    // Дополнительная анимация при наведении на кнопки
-    document.querySelectorAll('.show-on-map').forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05) rotate(-2deg)';
-        });
-        
-        btn.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0)';
-        });
     });
-});
 </script>
-
 {% endblock %}
