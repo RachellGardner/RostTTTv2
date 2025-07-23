@@ -4,7 +4,209 @@
 {% block title %}ООО "РОСТПОЛИМЕРПРОМ" - Производитель полимерных люков{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/Di.css' %}">
+<link rel="stylesheet" href="{% static 'css/D.css' %}">
+
+<style>
+    /* Цветовая палитра */
+    :root {
+        --primary: #0D2D4A;
+        --primary-light: #1A4B7D;
+        --secondary: #2b3ba3;
+        --accent: #8C8C8C;
+        --dark: #1A1A1A;
+        --light: #F8F9FA;
+        --light-gray: #E9ECEF;
+        --white: #FFFFFF;
+        --text: #4A4A4A;
+        
+        --shadow-sm: 0 2px 12px rgba(13, 45, 74, 0.08);
+        --shadow-md: 0 4px 24px rgba(13, 45, 74, 0.12);
+        --shadow-lg: 0 8px 32px rgba(13, 45, 74, 0.16);
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Основные стили */
+    .minimal-catalog {
+        padding: 80px 0;
+        background-color: var(--light);
+        position: relative;
+    }
+
+    .h1_catalog {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 40px;
+        text-align: center;
+        position: relative;
+        line-height: 1.3;
+    }
+
+    .h1_catalog::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: var(--secondary);
+        margin: 20px auto 0;
+    }
+
+    .product-grid_catalog {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .product-card_catalog {
+        background: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        position: relative;
+        border: 1px solid var(--light-gray);
+    }
+
+    .product-card_catalog:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(23, 40, 113, 0.3);
+    }
+
+    .product-image-box_catalog {
+        height: 240px;
+        background: var(--light-gray);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-image-box_catalog img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .product-card_catalog:hover .product-image-box_catalog img {
+        transform: scale(1.03);
+    }
+
+    .no-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: 3rem;
+        color: var(--accent);
+        background: var(--light-gray);
+    }
+
+    .product-info_catalog {
+        padding: 25px;
+    }
+
+    .product-info_catalog h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary);
+        line-height: 1.4;
+    }
+
+    .description_catalog {
+        margin-bottom: 20px;
+        color: var(--text);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .more-btn_catalog {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        background: transparent;
+        color: var(--primary);
+        border: 1px solid var(--secondary);
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: var(--transition);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .more-btn_catalog:hover {
+        background: var(--secondary);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(53, 61, 125, 0.2);
+    }
+
+    /* Анимации */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .product-card_catalog {
+        opacity: 0;
+        animation: fadeIn 0.6s forwards;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 992px) {
+        .minimal-catalog {
+            padding: 60px 0;
+        }
+        
+        .h1_catalog {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .h1_catalog {
+            font-size: 2rem;
+        }
+        
+        .product-grid_catalog {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+    }
+
+    @media (max-width: 576px) {
+        .h1_catalog {
+            font-size: 1.8rem;
+        }
+        
+        .product-grid_catalog {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Анимация карточек с задержкой
+        const productCards = document.querySelectorAll('.product-card_catalog');
+        productCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Плавное появление страницы
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            document.body.style.transition = 'opacity 0.4s ease-out';
+            document.body.style.opacity = '1';
+        }, 100);
+    });
+</script>
 
 <div class="minimal-catalog">
     <h1 class="h1_catalog">Каталог продукции</h1>
@@ -23,7 +225,12 @@
             <div class="product-info_catalog">
                 <h2>{{ product.name }}</h2>
                 <p class="description_catalog">{{ product.description|truncatechars:120 }}</p>
-                <a href="{% url 'product_detail' model_type=product.model_type pk=product.pk %}" class="more-btn_catalog">Подробнее</a>
+                <a href="{% url 'product_detail' model_type=product.model_type pk=product.pk %}" class="more-btn_catalog">
+                    Подробнее
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
         </div>
         {% endfor %}
