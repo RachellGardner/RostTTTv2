@@ -137,7 +137,7 @@
         align-items: center;
         justify-content: center;
         background: var(--light-gray);
-        padding: 20px; /* Добавляем отступы вокруг фото */
+        padding: 20px;
     }
 
     .product-image-box_catalog img {
@@ -146,7 +146,7 @@
         width: auto;
         height: auto;
         object-fit: contain;
-        display: block; /* Убираем лишнее пространство под изображением */
+        display: block;
     }
 
     .no-image {
@@ -266,11 +266,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Анимация карточек с задержкой
-        const productCards = document.querySelectorAll('.product-card_catalog');
-        productCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-        });
+        
 
         // Плавное появление страницы
         document.body.style.opacity = '0';
@@ -334,8 +330,9 @@
         <a href="#lyuk" class="category-link">Люки</a>
         <a href="#dozhdiepriemnik" class="category-link">Дождеприемники</a>
         <a href="#vodootvodnyylotok" class="category-link">Водоотводные лотки</a>
-        <a href="#trotuarnayaplitka" class="category-link">Тротуарная плитка</a>
-        <a href="#cherepitsa" class="category-link">Черепица</a>
+        <a href="#koltsa" class="category-link">Кольца</a>
+        <a href="#kryshki" class="category-link">Крышки</a>
+        <a href="#konusnyeperehody" class="category-link">Конусные переходы</a>
     </div>
     
     <!-- Секции по категориям -->
@@ -347,8 +344,9 @@
             {% if category.grouper == "lyuk" %}Люки
             {% elif category.grouper == "dozhdiepriemnik" %}Дождеприемники
             {% elif category.grouper == "vodootvodnyylotok" %}Водоотводные лотки
-            {% elif category.grouper == "trotuarnayaplitka" %}Тротуарная плитка
-            {% elif category.grouper == "cherepitsa" %}Черепица
+            {% elif category.grouper == "koltsa" %}Кольца
+            {% elif category.grouper == "kryshki" %}Крышки
+            {% elif category.grouper == "konusnyeperehody" %}Конусные переходы
             {% else %}{{ category.grouper|title }}
             {% endif %}
         </h2>

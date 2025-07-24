@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericTabularInline
-from .models import Lyuk, Dozhdiepriemnik, VodootvodnyyLotok, TrotuarnayaPlitka, Cherepitsa, ProductImage
+from .models import Lyuk, Dozhdiepriemnik, VodootvodnyyLotok, Kryshki, Koltsa, KonusnyePerehody, ProductImage
 
 class ProductImageInline(GenericTabularInline):
     model = ProductImage
@@ -55,10 +55,11 @@ class VodootvodnyyLotokAdmin(admin.ModelAdmin):
     image_preview.short_description = 'Превью'
     image_preview.allow_tags = True
 
-@admin.register(TrotuarnayaPlitka)
-class TrotuarnayaPlitkaAdmin(admin.ModelAdmin):
-    list_display = ('name', 'razmery', 'kolichestvo_na_km', 'image_preview')
+@admin.register(Kryshki)
+class KryshkiAdmin(admin.ModelAdmin):
+    list_display = ('name', 'tip', 'razmer', 'image_preview')
     search_fields = ('name',)
+    list_filter = ('tip',)
     inlines = [ProductImageInline]
     
     def image_preview(self, obj):
@@ -68,9 +69,23 @@ class TrotuarnayaPlitkaAdmin(admin.ModelAdmin):
     image_preview.short_description = 'Превью'
     image_preview.allow_tags = True
 
-@admin.register(Cherepitsa)
-class CherepitsaAdmin(admin.ModelAdmin):
-    list_display = ('name', 'massa_ryadnoy', 'temperaturnyy_diapazon', 'image_preview')
+@admin.register(Koltsa)
+class KoltsaAdmin(admin.ModelAdmin):
+    list_display = ('name', 'tip', 'vnutrenniy_diametr', 'image_preview')
+    search_fields = ('name',)
+    list_filter = ('tip',)
+    inlines = [ProductImageInline]
+    
+    def image_preview(self, obj):
+        if obj.image:
+            return '<img src="{}" style="max-height: 50px; max-width: 50px;" />'.format(obj.image.url)
+        return "No image"
+    image_preview.short_description = 'Превью'
+    image_preview.allow_tags = True
+
+@admin.register(KonusnyePerehody)
+class KonusnyePerehodyAdmin(admin.ModelAdmin):
+    list_display = ('name', 'diametr_verhniy', 'diametr_nizhniy', 'image_preview')
     search_fields = ('name',)
     inlines = [ProductImageInline]
     

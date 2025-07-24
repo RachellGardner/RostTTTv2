@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from itertools import chain
 from django.http import Http404
 from django.contrib.contenttypes.models import ContentType
-from .models import Lyuk, Dozhdiepriemnik, VodootvodnyyLotok, TrotuarnayaPlitka, Cherepitsa, ProductImage
+from .models import Lyuk, Dozhdiepriemnik, VodootvodnyyLotok, Kryshki, Koltsa, KonusnyePerehody, ProductImage
 
 def home(request):
     return render(request, 'home.html')
@@ -13,7 +13,7 @@ def about(request):
 def product_list(request):
     # Создаем список продуктов с информацией о типе
     products = []
-    for model in [Lyuk, Dozhdiepriemnik, VodootvodnyyLotok, TrotuarnayaPlitka, Cherepitsa]:
+    for model in [Lyuk, Dozhdiepriemnik, VodootvodnyyLotok, Kryshki, Koltsa, KonusnyePerehody]:
         for product in model.objects.all():
             product.model_type = model.__name__.lower()  # Добавляем тип модели к продукту
             products.append(product)
@@ -26,8 +26,9 @@ def product_detail(request, model_type, pk):
         'lyuk': Lyuk,
         'dozhdiepriemnik': Dozhdiepriemnik,
         'vodootvodnyylotok': VodootvodnyyLotok,
-        'trotuarnayaplitka': TrotuarnayaPlitka,
-        'cherepitsa': Cherepitsa
+        'kryshki': Kryshki,
+        'koltsa': Koltsa,
+        'konusnyeperehody': KonusnyePerehody
     }
     
     model = model_map.get(model_type.lower())

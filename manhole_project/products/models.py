@@ -110,28 +110,55 @@ class VodootvodnyyLotok(Product):
         verbose_name_plural = "Водоотводные лотки"
 
 
-# --- Тротуарная плитка ---
-class TrotuarnayaPlitka(Product):
-    razmery = models.CharField("Размеры", max_length=100, blank=True)
+# --- Крышки ---
+class Kryshki(Product):
+    TIP_CHOICES = [
+        ('Круглая', 'Круглая'),
+        ('Квадратная', 'Квадратная'),
+        ('Прямоугольная', 'Прямоугольная'),
+    ]
+
+    tip = models.CharField("Тип крышки", max_length=50, choices=TIP_CHOICES)
+    razmer = models.CharField("Размер", max_length=100, blank=True)
     vysota = models.CharField("Высота", max_length=100, blank=True)
-    kolichestvo_na_km = models.CharField("Количество на 1 к.м", max_length=100, blank=True)
+    nominalnaya_nagruzka = models.CharField("Номинальная нагрузка", max_length=100, blank=True)
+    ves = models.CharField("Вес", max_length=100, blank=True)
+    material = models.CharField("Материал", max_length=100, blank=True)
 
     class Meta:
-        verbose_name = "Тротуарная плитка"
-        verbose_name_plural = "Тротуарная плитка"
+        verbose_name = "Крышка"
+        verbose_name_plural = "Крышки"
 
 
-# --- Черепица ---
-class Cherepitsa(Product):
-    razmer_gabaritnyy_ryadnoy = models.CharField("Размеры (габаритные) рядной черепицы", max_length=100, blank=True)
-    razmer_kroynoy_ryadnoy = models.CharField("Размер (кроющий) рядной черепицы", max_length=100, blank=True)
-    razmer_gabaritnyy_konkovoy = models.CharField("Размер (габаритные) коньковой черепицы", max_length=100, blank=True)
-    razmer_kroynoy_konkovoy = models.CharField("Размер (кроющей) коньковой черепицы", max_length=100, blank=True)
-    massa_ryadnoy = models.CharField("Масса рядной черепицы", max_length=100, blank=True)
-    chislo_ryadnoy_na_kvadrat = models.CharField("Число черепицы на 1 кв.м (рядной)", max_length=100, blank=True)
-    chislo_konkovoy_na_kvadrat = models.CharField("Число черепицы на 1 кв.м (коньковой)", max_length=100, blank=True)
-    temperaturnyy_diapazon = models.CharField("Температурный диапазон", max_length=100, default="от -60 до +120")
+# --- Кольца ---
+class Koltsa(Product):
+    TIP_CHOICES = [
+        ('Стеновое', 'Стеновое'),
+        ('Опорное', 'Опорное'),
+        ('Доборное', 'Доборное'),
+    ]
+
+    tip = models.CharField("Тип кольца", max_length=50, choices=TIP_CHOICES)
+    vnutrenniy_diametr = models.CharField("Внутренний диаметр", max_length=100, blank=True)
+    naruzhnyy_diametr = models.CharField("Наружный диаметр", max_length=100, blank=True)
+    vysota = models.CharField("Высота", max_length=100, blank=True)
+    ves = models.CharField("Вес", max_length=100, blank=True)
+    material = models.CharField("Материал", max_length=100, blank=True)
 
     class Meta:
-        verbose_name = "Черепица"
-        verbose_name_plural = "Черепица"
+        verbose_name = "Кольцо"
+        verbose_name_plural = "Кольца"
+
+
+# --- Конусные переходы ---
+class KonusnyePerehody(Product):
+    diametr_verhniy = models.CharField("Верхний диаметр", max_length=100, blank=True)
+    diametr_nizhniy = models.CharField("Нижний диаметр", max_length=100, blank=True)
+    vysota = models.CharField("Высота", max_length=100, blank=True)
+    tolshchina_stenki = models.CharField("Толщина стенки", max_length=100, blank=True)
+    ves = models.CharField("Вес", max_length=100, blank=True)
+    material = models.CharField("Материал", max_length=100, blank=True)
+
+    class Meta:
+        verbose_name = "Конусный переход"
+        verbose_name_plural = "Конусные переходы"

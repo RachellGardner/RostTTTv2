@@ -635,7 +635,7 @@
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" data-count="10">0</div>
-                        <div class="stat-text">лет эксплуатации</div>
+                        <div class="stat-text">лет службы</div>
                     </div>
                 </div>
             </div>
@@ -652,39 +652,43 @@
         </p>
         
         <div class="product-grid">
+            <!-- Люки -->
             <div class="product-card">
-                <div class="product-image" style="background-image: url('{% static 'img/products/luki.jpg' %}')"></div>
+                <div class="product-image" style="background-image: url('{% static 'img/IMG_5349.jpg' %}')"></div>
                 <div class="product-body">
                     <h3 class="product-title">Полимерные люки</h3>
                     <p class="product-text">Элитные полимерные люки с повышенной нагрузочной способностью и уникальным дизайном для городской среды.</p>
-                    <a href="#" class="btn">Подробнее</a>
+                    <a href="{% url 'product_list' %}#lyuk" class="btn">Подробнее</a>
                 </div>
             </div>
             
+            <!-- Кольца (бывшие Технологические колодцы) -->
             <div class="product-card">
-                <div class="product-image" style="background-image: url('{% static 'img/lok.png' %}')"></div>
+                <div class="product-image" style="background-image: url('{% static 'img/Снимок экрана 2025-07-24 в 23.24.21.png' %}')"></div>
                 <div class="product-body">
-                    <h3 class="product-title">Технологические колодцы</h3>
+                    <h3 class="product-title">Кольца для колодцев</h3>
                     <p class="product-text">Модульные системы колодцев из композитных материалов для различных инженерных коммуникаций.</p>
-                    <a href="#" class="btn">Подробнее</a>
+                    <a href="{% url 'product_list' %}#koltsa" class="btn">Подробнее</a>
                 </div>
             </div>
             
+            <!-- Водоотводные лотки -->
             <div class="product-card">
-                <div class="product-image" style="background-image: url('{% static 'img/products/lotki.jpg' %}')"></div>
+                <div class="product-image" style="background-image: url('{% static 'img/Снимок экрана 2025-07-24 в 23.10.48.png' %}')"></div>
                 <div class="product-body">
                     <h3 class="product-title">Водоотводные системы</h3>
                     <p class="product-text">Премиальные системы водоотвода с повышенной пропускной способностью и эстетичным дизайном.</p>
-                    <a href="#" class="btn">Подробнее</a>
+                    <a href="{% url 'product_list' %}#vodootvodnyylotok" class="btn">Подробнее</a>
                 </div>
             </div>
             
+            <!-- Дождеприемники -->
             <div class="product-card">
-                <div class="product-image" style="background-image: url('{% static 'img/products/dozhdepriemniki.jpg' %}')"></div>
+                <div class="product-image" style="background-image: url('{% static 'img/Дождееприемник.JPG' %}')"></div>
                 <div class="product-body">
                     <h3 class="product-title">Дождеприемники</h3>
                     <p class="product-text">Современные решения для сбора и отвода поверхностных вод с фильтрационной системой.</p>
-                    <a href="#" class="btn">Подробнее</a>
+                    <a href="{% url 'product_list' %}#dozhdiepriemnik" class="btn">Подробнее</a>
                 </div>
             </div>
         </div>
