@@ -51,6 +51,60 @@
         margin: 20px auto 0;
     }
 
+    /* Стили для навигации по категориям */
+    .category-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+    .category-link {
+        padding: 10px 20px;
+        background: var(--white);
+        border: 1px solid var(--light-gray);
+        border-radius: 30px;
+        color: var(--primary);
+        font-weight: 500;
+        text-decoration: none;
+        transition: var(--transition);
+        white-space: nowrap;
+    }
+
+    .category-link:hover,
+    .category-link.active {
+        background: var(--secondary);
+        color: var(--white);
+        border-color: var(--secondary);
+    }
+
+    /* Стили для секций категорий */
+    .category-section {
+        margin-bottom: 60px;
+        scroll-margin-top: 100px;
+    }
+
+    .category-title {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--light-gray);
+        position: relative;
+    }
+
+    .category-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100px;
+        height: 2px;
+        background: var(--secondary);
+    }
+
     .product-grid_catalog {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -71,27 +125,28 @@
     }
 
     .product-card_catalog:hover {
-        transform: translateY(-5px);
         box-shadow: var(--shadow-md);
         border-color: rgba(23, 40, 113, 0.3);
     }
 
     .product-image-box_catalog {
         height: 240px;
-        background: var(--light-gray);
         position: relative;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--light-gray);
+        padding: 20px; /* Добавляем отступы вокруг фото */
     }
 
     .product-image-box_catalog img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.6s ease;
-    }
-
-    .product-card_catalog:hover .product-image-box_catalog img {
-        transform: scale(1.03);
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block; /* Убираем лишнее пространство под изображением */
     }
 
     .no-image {
@@ -144,8 +199,6 @@
     .more-btn_catalog:hover {
         background: var(--secondary);
         color: var(--white);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(53, 61, 125, 0.2);
     }
 
     /* Анимации */
@@ -178,6 +231,15 @@
         .product-grid_catalog {
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         }
+
+        .category-nav {
+            gap: 10px;
+        }
+
+        .category-link {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
     }
 
     @media (max-width: 576px) {
@@ -187,6 +249,17 @@
         
         .product-grid_catalog {
             grid-template-columns: 1fr;
+        }
+
+        .category-nav {
+            justify-content: flex-start;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .category-nav::-webkit-scrollbar {
+            display: none;
         }
     }
 </style>
@@ -205,35 +278,106 @@
             document.body.style.transition = 'opacity 0.4s ease-out';
             document.body.style.opacity = '1';
         }, 100);
+
+        // Подсветка активной категории при скролле
+        const categorySections = document.querySelectorAll('.category-section');
+        const categoryLinks = document.querySelectorAll('.category-link');
+        
+        function updateActiveCategory() {
+            let currentSection = '';
+            
+            categorySections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.id;
+                }
+            });
+            
+            categoryLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveCategory);
+        updateActiveCategory(); // Инициализация при загрузке
+        
+        // Плавный скролл для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Обновляем URL без перезагрузки страницы
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
     });
 </script>
 
 <div class="minimal-catalog">
     <h1 class="h1_catalog">Каталог продукции</h1>
     
-    <div class="product-grid_catalog">
-        {% for product in products %}
-        <div class="product-card_catalog">
-            <div class="product-image-box_catalog">
-                {% if product.image %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" loading="lazy">
-                {% else %}
-                <div class="no-image">⌖</div>
-                {% endif %}
-            </div>
-            
-            <div class="product-info_catalog">
-                <h2>{{ product.name }}</h2>
-                <p class="description_catalog">{{ product.description|truncatechars:120 }}</p>
-                <a href="{% url 'product_detail' model_type=product.model_type pk=product.pk %}" class="more-btn_catalog">
-                    Подробнее
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-        {% endfor %}
+    <!-- Навигация по категориям -->
+    <div class="category-nav">
+        <a href="#lyuk" class="category-link">Люки</a>
+        <a href="#dozhdiepriemnik" class="category-link">Дождеприемники</a>
+        <a href="#vodootvodnyylotok" class="category-link">Водоотводные лотки</a>
+        <a href="#trotuarnayaplitka" class="category-link">Тротуарная плитка</a>
+        <a href="#cherepitsa" class="category-link">Черепица</a>
     </div>
+    
+    <!-- Секции по категориям -->
+    {% regroup products by model_type as product_categories %}
+    
+    {% for category in product_categories %}
+    <section id="{{ category.grouper }}" class="category-section">
+        <h2 class="category-title">
+            {% if category.grouper == "lyuk" %}Люки
+            {% elif category.grouper == "dozhdiepriemnik" %}Дождеприемники
+            {% elif category.grouper == "vodootvodnyylotok" %}Водоотводные лотки
+            {% elif category.grouper == "trotuarnayaplitka" %}Тротуарная плитка
+            {% elif category.grouper == "cherepitsa" %}Черепица
+            {% else %}{{ category.grouper|title }}
+            {% endif %}
+        </h2>
+        
+        <div class="product-grid_catalog">
+            {% for product in category.list %}
+            <div class="product-card_catalog">
+                <div class="product-image-box_catalog">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" loading="lazy">
+                    {% else %}
+                    <div class="no-image">⌖</div>
+                    {% endif %}
+                </div>
+                
+                <div class="product-info_catalog">
+                    <h2>{{ product.name }}</h2>
+                    <p class="description_catalog">{{ product.description|truncatechars:120 }}</p>
+                    <a href="{% url 'product_detail' model_type=product.model_type pk=product.pk %}" class="more-btn_catalog">
+                        Подробнее
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
 </div>
 {% endblock %}
