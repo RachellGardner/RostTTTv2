@@ -1,0 +1,769 @@
+[
+{
+  "model": "products.productimage",
+  "pk": 1,
+  "fields": {
+    "content_type": 10,
+    "object_id": 1,
+    "image": "product_images/Снимок_экрана_2025-07-11_в_12.14.09.png",
+    "created_at": "2025-07-14T21:57:00.556Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 2,
+  "fields": {
+    "content_type": 9,
+    "object_id": 1,
+    "image": "product_images/IMG_4051.JPG",
+    "created_at": "2025-07-14T23:37:16.352Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 3,
+  "fields": {
+    "content_type": 12,
+    "object_id": 1,
+    "image": "product_images/Снимок_экрана_2025-07-14_в_16.52.09.png",
+    "created_at": "2025-07-14T23:52:30.629Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 4,
+  "fields": {
+    "content_type": 10,
+    "object_id": 2,
+    "image": "product_images/Unknown.jpeg",
+    "created_at": "2025-07-23T17:28:33.358Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 5,
+  "fields": {
+    "content_type": 10,
+    "object_id": 2,
+    "image": "product_images/Снимок_экрана_2025-07-23_в_20.28.18.png",
+    "created_at": "2025-07-23T17:28:33.358Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 6,
+  "fields": {
+    "content_type": 10,
+    "object_id": 3,
+    "image": "product_images/Снимок_экрана_2025-07-23_в_22.39.48.png",
+    "created_at": "2025-07-23T19:39:59.966Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 7,
+  "fields": {
+    "content_type": 10,
+    "object_id": 4,
+    "image": "product_images/IMG_5394.jpg",
+    "created_at": "2025-07-23T19:46:51.806Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 8,
+  "fields": {
+    "content_type": 10,
+    "object_id": 5,
+    "image": "product_images/Снимок_экрана_2025-07-23_в_22.51.57.png",
+    "created_at": "2025-07-23T19:52:08.790Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 9,
+  "fields": {
+    "content_type": 10,
+    "object_id": 6,
+    "image": "product_images/квадрат_685х685.jpg",
+    "created_at": "2025-07-23T19:55:08.381Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 10,
+  "fields": {
+    "content_type": 10,
+    "object_id": 6,
+    "image": "product_images/квадратный.jpg",
+    "created_at": "2025-07-23T19:55:08.381Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 11,
+  "fields": {
+    "content_type": 10,
+    "object_id": 6,
+    "image": "product_images/Снимок_экрана_2025-07-23_в_22.54.49.png",
+    "created_at": "2025-07-23T19:55:08.381Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 12,
+  "fields": {
+    "content_type": 10,
+    "object_id": 7,
+    "image": "product_images/IMG_5117.jpg",
+    "created_at": "2025-07-23T19:58:04.540Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 13,
+  "fields": {
+    "content_type": 10,
+    "object_id": 7,
+    "image": "product_images/IMG_5133.jpg",
+    "created_at": "2025-07-23T19:58:04.540Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 14,
+  "fields": {
+    "content_type": 10,
+    "object_id": 7,
+    "image": "product_images/Снимок_экрана_2025-07-23_в_22.57.26.png",
+    "created_at": "2025-07-23T19:58:04.541Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 15,
+  "fields": {
+    "content_type": 10,
+    "object_id": 8,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.20.38.png",
+    "created_at": "2025-07-24T05:21:12.206Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 16,
+  "fields": {
+    "content_type": 10,
+    "object_id": 8,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.16.17.png",
+    "created_at": "2025-07-24T05:21:12.207Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 17,
+  "fields": {
+    "content_type": 10,
+    "object_id": 9,
+    "image": "product_images/DSC08501.JPG",
+    "created_at": "2025-07-24T05:24:11.949Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 18,
+  "fields": {
+    "content_type": 10,
+    "object_id": 9,
+    "image": "product_images/DSC08495.JPG",
+    "created_at": "2025-07-24T05:24:11.949Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 19,
+  "fields": {
+    "content_type": 10,
+    "object_id": 9,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.23.50.png",
+    "created_at": "2025-07-24T05:24:11.950Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 20,
+  "fields": {
+    "content_type": 10,
+    "object_id": 10,
+    "image": "product_images/IMG_5406.jpg",
+    "created_at": "2025-07-24T05:30:28.108Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 21,
+  "fields": {
+    "content_type": 10,
+    "object_id": 10,
+    "image": "product_images/IMG_5408.jpg",
+    "created_at": "2025-07-24T05:30:28.109Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 22,
+  "fields": {
+    "content_type": 10,
+    "object_id": 10,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.29.26.png",
+    "created_at": "2025-07-24T05:30:28.109Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 23,
+  "fields": {
+    "content_type": 10,
+    "object_id": 11,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.36.00.png",
+    "created_at": "2025-07-24T05:36:55.931Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 24,
+  "fields": {
+    "content_type": 10,
+    "object_id": 11,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.36.10.png",
+    "created_at": "2025-07-24T05:36:55.932Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 25,
+  "fields": {
+    "content_type": 10,
+    "object_id": 12,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.42.15.png",
+    "created_at": "2025-07-24T05:44:05.976Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 26,
+  "fields": {
+    "content_type": 10,
+    "object_id": 12,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.42.38.png",
+    "created_at": "2025-07-24T05:44:05.977Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 27,
+  "fields": {
+    "content_type": 10,
+    "object_id": 13,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.47.21.png",
+    "created_at": "2025-07-24T05:48:08.327Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 28,
+  "fields": {
+    "content_type": 10,
+    "object_id": 13,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.47.29.png",
+    "created_at": "2025-07-24T05:48:08.328Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 29,
+  "fields": {
+    "content_type": 10,
+    "object_id": 14,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.51.20.png",
+    "created_at": "2025-07-24T05:52:14.226Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 30,
+  "fields": {
+    "content_type": 10,
+    "object_id": 14,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.51.29.png",
+    "created_at": "2025-07-24T05:52:14.227Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 31,
+  "fields": {
+    "content_type": 9,
+    "object_id": 1,
+    "image": "product_images/IMG_4052.JPG",
+    "created_at": "2025-07-24T05:55:27.545Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 32,
+  "fields": {
+    "content_type": 9,
+    "object_id": 1,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_08.55.13.png",
+    "created_at": "2025-07-24T05:55:27.547Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 33,
+  "fields": {
+    "content_type": 12,
+    "object_id": 2,
+    "image": "product_images/Снимок_экрана_2025-07-24_в_09.02.40.png",
+    "created_at": "2025-07-24T06:03:01.187Z"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 1,
+  "fields": {
+    "name": "Люк легкий смотровой 460х60 (А15)",
+    "description": "Люк предназначен для установки в местах\r\nзеленых насаждений, пешеходных зон.",
+    "image": "products/Снимок_экрана_2025-07-10_в_15.00.21.png",
+    "specifications": "",
+    "created_at": "2025-07-10T22:02:12.374Z",
+    "naruzhnyy_razmer": "460мм",
+    "vysota": "60мм",
+    "vnutrenniy_diametr": "330мм",
+    "glubina_ustanovki_kryshki": "10мм",
+    "nominalnaya_nagruzka": "1.5т",
+    "ves": "до 6кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 2,
+  "fields": {
+    "name": "Люк легкий квадратный смотровой 450х450 (А15)",
+    "description": "Люк предназначен для установки в местах\r\nзеленых насаждений, пешеходных зон.",
+    "image": "products/Снимок_экрана_2025-07-23_в_20.29.45.png",
+    "specifications": "",
+    "created_at": "2025-07-13T04:00:10.354Z",
+    "naruzhnyy_razmer": "450х450мм",
+    "vysota": "40мм",
+    "vnutrenniy_diametr": "350мм",
+    "glubina_ustanovki_kryshki": "25мм",
+    "nominalnaya_nagruzka": "3тн",
+    "ves": "до 8кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 3,
+  "fields": {
+    "name": "Люк легкий квадратный смотровой 470х470 (А15)",
+    "description": "Люк предназначен для установки в местах зеленых насаждений, пешеходных зон.",
+    "image": "products/Снимок_экрана_2025-07-23_в_22.39.16.png",
+    "specifications": "",
+    "created_at": "2025-07-13T04:02:30.036Z",
+    "naruzhnyy_razmer": "470х470мм",
+    "vysota": "55мм",
+    "vnutrenniy_diametr": "355мм",
+    "glubina_ustanovki_kryshki": "20мм",
+    "nominalnaya_nagruzka": "3тн",
+    "ves": "до 10кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 4,
+  "fields": {
+    "name": "Люк легкий смотровой 730х60 (А15)",
+    "description": "Люк предназначен для установки в местах зеленых насаждений, пешеходных зон.",
+    "image": "products/IMG_5403.jpg",
+    "specifications": "",
+    "created_at": "2025-07-13T04:03:38.484Z",
+    "naruzhnyy_razmer": "730мм",
+    "vysota": "60мм",
+    "vnutrenniy_diametr": "550мм",
+    "glubina_ustanovki_kryshki": "25мм",
+    "nominalnaya_nagruzka": "3тн",
+    "ves": "до 22кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 5,
+  "fields": {
+    "name": "Люк легкий смотровой 750х60 (А30)",
+    "description": "Люк предназначен для установки в местах зеленых насаждений, пешеходных зон.",
+    "image": "products/Снимок_экрана_2025-07-23_в_22.51.37.png",
+    "specifications": "",
+    "created_at": "2025-07-13T04:04:47.334Z",
+    "naruzhnyy_razmer": "750мм",
+    "vysota": "60мм",
+    "vnutrenniy_diametr": "550мм",
+    "glubina_ustanovki_kryshki": "30мм",
+    "nominalnaya_nagruzka": "3тн",
+    "ves": "до 27кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 6,
+  "fields": {
+    "name": "люк легкий квадратный смотровой 685х685х60 (А15)",
+    "description": "Люк предназначен для установки в местах зеленых насаждений, пешеходных зон.",
+    "image": "products/квадрат.jpg",
+    "specifications": "",
+    "created_at": "2025-07-13T04:06:13.566Z",
+    "naruzhnyy_razmer": "685х685мм",
+    "vysota": "60мм",
+    "vnutrenniy_diametr": "550мм",
+    "glubina_ustanovki_kryshki": "20-25мм",
+    "nominalnaya_nagruzka": "3тн",
+    "ves": "до 27кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 7,
+  "fields": {
+    "name": "Люк легкий смотровой 760х90 (А15)",
+    "description": "Люк предназначен для установки в местах зеленых насаждений, пешеходных зон.",
+    "image": "products/IMG_4035.JPG",
+    "specifications": "",
+    "created_at": "2025-07-13T04:07:21.597Z",
+    "naruzhnyy_razmer": "760мм",
+    "vysota": "90мм",
+    "vnutrenniy_diametr": "590мм",
+    "glubina_ustanovki_kryshki": "30мм",
+    "nominalnaya_nagruzka": "до 5тн",
+    "ves": "до 30кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 8,
+  "fields": {
+    "name": "Люк легкий смотровой 780х100 (А15)",
+    "description": "Люк предназначен для установки в местах зеленых насаждений, пешеходных зон.",
+    "image": "products/Снимок_экрана_2025-07-24_в_08.20.30.png",
+    "specifications": "Дополнительные возможности для люка:\r\n•установка дополнительной крышки;\r\n•установка дополнительной крышки с запорным устройс",
+    "created_at": "2025-07-13T04:08:50.567Z",
+    "naruzhnyy_razmer": "780мм",
+    "vysota": "100мм",
+    "vnutrenniy_diametr": "550мм",
+    "glubina_ustanovki_kryshki": "40мм",
+    "nominalnaya_nagruzka": "до 7тн",
+    "ves": "до 40кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 9,
+  "fields": {
+    "name": "Люк легкий смотровой 760х110 (А15)",
+    "description": "Люк предназначен для установки в местах\r\nзеленых насаждений, пешеходных зон.",
+    "image": "products/DSC08510.JPG",
+    "specifications": "Дополнительные возможности для люка:\r\n•установка дополнительной крышки;\r\n•установка дополнительной крышки с запорным устройством;",
+    "created_at": "2025-07-13T04:10:11.970Z",
+    "naruzhnyy_razmer": "760мм",
+    "vysota": "110мм",
+    "vnutrenniy_diametr": "550мм",
+    "glubina_ustanovki_kryshki": "35мм",
+    "nominalnaya_nagruzka": "до 7тн",
+    "ves": "до 38кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 10,
+  "fields": {
+    "name": "Люк легкий смотровой 780х105 (А15)",
+    "description": "Люк предназначен для установки в местах\r\nзеленых насаждений, пешеходных зон.",
+    "image": "products/Снимок_экрана_2025-07-24_в_08.27.13.png",
+    "specifications": "Дополнительные возможности для люка:\r\n•установка дополнительной крышки;\r\n•установка дополнительной крышки с запорным устройством;\r\n•установка запорного устройства на основную крышку.",
+    "created_at": "2025-07-24T05:30:28.107Z",
+    "naruzhnyy_razmer": "780мм",
+    "vysota": "105мм",
+    "vnutrenniy_diametr": "580мм",
+    "glubina_ustanovki_kryshki": "40мм",
+    "nominalnaya_nagruzka": "до 7тн",
+    "ves": "до 40тн",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 11,
+  "fields": {
+    "name": "Люк легкий смотровой 780х100 (А15)",
+    "description": "Люк применяется для телефонных\r\nсетей, теплосетей, водопроводных\r\nсетей. Для ограничения доступа к\r\nподземным коммуникациям.",
+    "image": "products/Снимок_экрана_2025-07-24_в_08.35.51.png",
+    "specifications": "С дополнительной крышкой и с\r\nзапорным устройством\r\nДополнительные возможности для люка:\r\n•установка дополнительной крышки;\r\n•установка дополнительной крышки с запорным устройством;\r\n•установка запорного устройства на основную крышку.",
+    "created_at": "2025-07-24T05:36:55.928Z",
+    "naruzhnyy_razmer": "780мм",
+    "vysota": "100мм",
+    "vnutrenniy_diametr": "550мм",
+    "glubina_ustanovki_kryshki": "40мм",
+    "nominalnaya_nagruzka": "5тн",
+    "ves": "до 46кг",
+    "tip_vesa": "Легкий"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 12,
+  "fields": {
+    "name": "Люк средний 780х100 (В125)",
+    "description": "Люк предназначен для установки на городских автомобильны",
+    "image": "products/Снимок_экрана_2025-07-24_в_08.42.02.png",
+    "specifications": "Дополнительные возможности для люка:\r\n•установка дополнительной крышки;\r\n•установка дополнительной крышки с запорным устройством;\r\n•установка запорного устройства на основную крышку.",
+    "created_at": "2025-07-24T05:44:05.974Z",
+    "naruzhnyy_razmer": "780мм",
+    "vysota": "100мм",
+    "vnutrenniy_diametr": "550мм",
+    "glubina_ustanovki_kryshki": "60мм",
+    "nominalnaya_nagruzka": "12,5тн",
+    "ves": "до 50кг",
+    "tip_vesa": "Средний"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 13,
+  "fields": {
+    "name": "Люк тяжелый 780х100 (В150)",
+    "description": "Люк предназначен для установки на городских автомобильных дорогах,\r\nв жилых зонах, автостоянках, городских парках.",
+    "image": "products/Снимок_экрана_2025-07-24_в_08.47.16.png",
+    "specifications": "Дополнительные возможности для люка:\r\n•установка дополнительной крышки;\r\n•установка дополнительной крышки с запорным устройством;\r\n•установка запорного устройства на основную крышку.",
+    "created_at": "2025-07-24T05:48:08.324Z",
+    "naruzhnyy_razmer": "780мм",
+    "vysota": "100мм",
+    "vnutrenniy_diametr": "550мм",
+    "glubina_ustanovki_kryshki": "60мм",
+    "nominalnaya_nagruzka": "15тн",
+    "ves": "до 46кг",
+    "tip_vesa": "Тяжелый"
+  }
+},
+{
+  "model": "products.lyuk",
+  "pk": 14,
+  "fields": {
+    "name": "Люк тяжелый. Магистральный 800х120 (С250)",
+    "description": "Люк предназначен для установки на городские автомобильные дороги с\r\nинтенсивным движением.",
+    "image": "products/Снимок_экрана_2025-07-24_в_08.51.13.png",
+    "specifications": "",
+    "created_at": "2025-07-24T05:52:14.223Z",
+    "naruzhnyy_razmer": "800мм",
+    "vysota": "120мм",
+    "vnutrenniy_diametr": "600мм",
+    "glubina_ustanovki_kryshki": "80мм",
+    "nominalnaya_nagruzka": "25тн",
+    "ves": "до 65кг",
+    "tip_vesa": "Тяжелый"
+  }
+},
+{
+  "model": "products.dozhdiepriemnik",
+  "pk": 1,
+  "fields": {
+    "name": "Дождеприемник магистральный",
+    "description": "Дождеприемник предназначен для приема поверхностных сточных вод.\r\nУстанавливается на городских автомобильных дорогах с интенсивным движением.",
+    "image": "products/Снимок_экрана_2025-07-24_в_08.54.04.png",
+    "specifications": "",
+    "created_at": "2025-07-14T23:37:16.351Z",
+    "naruzhnyy_razmer": "800х495мм",
+    "vysota": "110мм",
+    "vnutrenniy_diametr": "680х330мм",
+    "glubina_ustanovki_kryshki": "70мм",
+    "nominalnaya_nagruzka": "25тн",
+    "ves": "до 45кг"
+  }
+},
+{
+  "model": "products.vodootvodnyylotok",
+  "pk": 1,
+  "fields": {
+    "name": "Лоток водоотводный малый",
+    "description": "Лоток предназначен для отвода ливневых вод от пешеходных дорог,\r\nстоянок для авто, перед гаражами, домами, офисными зданиями,\r\nпешеходными зонами, в парках",
+    "image": "products/Снимок_экрана_2025-07-14_в_16.51.51.png",
+    "specifications": "",
+    "created_at": "2025-07-14T23:52:30.628Z",
+    "naruzhnyy_razmer_lotka": "500х200мм",
+    "vysota": "55мм",
+    "nominalnaya_nagruzka": "3тн",
+    "naruzhnyy_razmer_reshetki_lotka": "",
+    "ves": "до 6кг"
+  }
+},
+{
+  "model": "products.vodootvodnyylotok",
+  "pk": 2,
+  "fields": {
+    "name": "Лоток водоотводный полимерно-песчаный",
+    "description": "Лоток предназначен для отвода ливневых вод от пешеходных дорог,\r\nстоянок для авто, перед гаражами, домами, офисными зданиями,\r\nпешеходными зонами, в парках.",
+    "image": "products/Снимок_экрана_2025-07-24_в_09.01.48.png",
+    "specifications": "",
+    "created_at": "2025-07-24T06:03:01.184Z",
+    "naruzhnyy_razmer_lotka": "1000х130мм",
+    "vysota": "90; 130мм",
+    "nominalnaya_nagruzka": "3тн",
+    "naruzhnyy_razmer_reshetki_lotka": "500х130мм",
+    "ves": "до 3кг"
+  }
+},
+{
+  "model": "products.kryshki",
+  "pk": 1,
+  "fields": {
+    "name": "Крышка ФСК",
+    "description": "/",
+    "image": "",
+    "specifications": "/",
+    "created_at": "2025-07-24T19:43:59.869Z",
+    "tip": "Круглая",
+    "razmer": "",
+    "vysota": "",
+    "nominalnaya_nagruzka": "",
+    "ves": "",
+    "material": ""
+  }
+},
+{
+  "model": "products.kryshki",
+  "pk": 2,
+  "fields": {
+    "name": "Крышка водоотводного лотка",
+    "description": "2шт",
+    "image": "",
+    "specifications": "/",
+    "created_at": "2025-07-24T19:44:37.822Z",
+    "tip": "Прямоугольная",
+    "razmer": "",
+    "vysota": "",
+    "nominalnaya_nagruzka": "",
+    "ves": "",
+    "material": ""
+  }
+},
+{
+  "model": "products.kryshki",
+  "pk": 3,
+  "fields": {
+    "name": "Крышка конуса",
+    "description": "Универсальная",
+    "image": "",
+    "specifications": "/",
+    "created_at": "2025-07-24T19:45:02.555Z",
+    "tip": "Прямоугольная",
+    "razmer": "",
+    "vysota": "",
+    "nominalnaya_nagruzka": "",
+    "ves": "",
+    "material": ""
+  }
+},
+{
+  "model": "products.koltsa",
+  "pk": 1,
+  "fields": {
+    "name": "Кольцо 1000х200мм",
+    "description": ".",
+    "image": "",
+    "specifications": "",
+    "created_at": "2025-07-24T19:41:37.754Z",
+    "tip": "Опорное",
+    "vnutrenniy_diametr": "",
+    "naruzhnyy_diametr": "",
+    "vysota": "",
+    "ves": "",
+    "material": ""
+  }
+},
+{
+  "model": "products.koltsa",
+  "pk": 2,
+  "fields": {
+    "name": "Кольцо 1000/200мм",
+    "description": "Самовывоз",
+    "image": "",
+    "specifications": "/",
+    "created_at": "2025-07-24T19:42:17.835Z",
+    "tip": "Опорное",
+    "vnutrenniy_diametr": "",
+    "naruzhnyy_diametr": "",
+    "vysota": "",
+    "ves": "",
+    "material": ""
+  }
+},
+{
+  "model": "products.koltsa",
+  "pk": 3,
+  "fields": {
+    "name": "Кольцо 1000/250мм",
+    "description": "/",
+    "image": "",
+    "specifications": "/",
+    "created_at": "2025-07-24T19:42:41.168Z",
+    "tip": "Опорное",
+    "vnutrenniy_diametr": "",
+    "naruzhnyy_diametr": "",
+    "vysota": "",
+    "ves": "",
+    "material": ""
+  }
+},
+{
+  "model": "products.koltsa",
+  "pk": 4,
+  "fields": {
+    "name": "Кольцо 1000/250мм",
+    "description": "/",
+    "image": "",
+    "specifications": "/",
+    "created_at": "2025-07-24T19:43:01.568Z",
+    "tip": "Опорное",
+    "vnutrenniy_diametr": "",
+    "naruzhnyy_diametr": "",
+    "vysota": "",
+    "ves": "",
+    "material": ""
+  }
+},
+{
+  "model": "products.koltsa",
+  "pk": 5,
+  "fields": {
+    "name": "Днище колодца 1000мм",
+    "description": "/",
+    "image": "",
+    "specifications": "/",
+    "created_at": "2025-07-24T19:43:28.435Z",
+    "tip": "Опорное",
+    "vnutrenniy_diametr": "",
+    "naruzhnyy_diametr": "",
+    "vysota": "",
+    "ves": "",
+    "material": ""
+  }
+}
+]
