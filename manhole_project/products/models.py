@@ -2,67 +2,66 @@ from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
+
 class ProductImage(models.Model):
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, verbose_name="Тип объекта")
+    object_id = models.PositiveIntegerField(verbose_name="ID объекта", db_index=True)
     content_object = GenericForeignKey('content_type', 'object_id')
+
     image = models.ImageField("Изображение", upload_to='product_images/')
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField("Добавлено", auto_now_add=True)
 
     class Meta:
         verbose_name = "Изображение товара"
         verbose_name_plural = "Изображения товаров"
+        indexes = [
+            models.Index(fields=["content_type", "object_id"]),
+        ]
 
     def __str__(self):
-        return f"Изображение для {self.content_object.name if self.content_object else 'неизвестного товара'}"
+        return f"Изображение для {self.content_object.name if self.content_object else 'неизвестного'}"
 
 
 class Product(models.Model):
-    name = models.CharField("Название", max_length=200)
-    description = models.TextField("Описание")
-    image = models.ImageField("Изображение", upload_to='products/', null=True, blank=True)
-    specifications = models.TextField("Характеристики", blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    name = models.CharField("Название", max_length=200, db_index=True)
+    description = models.TextField("Описание", blank=True)
+    image = models.ImageField("Основное изображение", upload_to='products/', null=True, blank=True)
+    specifications = models.TextField("Общие характеристики", blank=True)
+    created_at = models.DateTimeField("Создано", auto_now_add=True)
+
+    class Meta:
+        abstract = True
 
     def __str__(self):
         return self.name
 
-    class Meta:
-        abstract = True
-         
     def get_specifications(self):
         specs = []
-        
-        # Добавляем общие характеристики
+
         if self.specifications:
             specs.append(self.specifications)
-        
-        # Получаем все поля модели (включая дочерние)
+
+        skip_fields = {'id', 'created_at', 'name', 'description', 'image', 'specifications'}
+
         for field in self._meta.get_fields():
-            # Пропускаем служебные поля и поля базового класса
-            if field.name in ['id', 'product_ptr', 'created_at', 'name', 'description', 'image', 'specifications']:
+            if not isinstance(field, models.Field) or field.name in skip_fields:
                 continue
-                
-            # Получаем значение поля
+
             value = getattr(self, field.name, None)
-            
-            # Пропускаем пустые значения
             if not value:
                 continue
-                
-            # Получаем человекочитаемое название поля
-            verbose_name = getattr(field, 'verbose_name', field.name)
-            
-            # Для полей с choices показываем значение, а не ключ
+
+            label = getattr(field, 'verbose_name', field.name)
             if hasattr(field, 'choices') and field.choices:
                 value = dict(field.choices).get(value, value)
-            
-            specs.append(f"{verbose_name}: {value}")
-        
+
+            specs.append(f"{label}: {value}")
+
         return specs
 
 
-# --- Люк ---
+# ========== Товары ==========
+
 class Lyuk(Product):
     TIP_VES_CHOICES = [
         ('Легкий', 'Легкий'),
@@ -83,7 +82,6 @@ class Lyuk(Product):
         verbose_name_plural = "Люки"
 
 
-# --- Дождеприемник ---
 class Dozhdiepriemnik(Product):
     naruzhnyy_razmer = models.CharField("Наружный размер", max_length=100, blank=True)
     vysota = models.CharField("Высота", max_length=100, blank=True)
@@ -97,12 +95,11 @@ class Dozhdiepriemnik(Product):
         verbose_name_plural = "Дождеприемники"
 
 
-# --- Водоотводный лоток ---
 class VodootvodnyyLotok(Product):
     naruzhnyy_razmer_lotka = models.CharField("Наружный размер лотка", max_length=100, blank=True)
     vysota = models.CharField("Высота", max_length=100, blank=True)
     nominalnaya_nagruzka = models.CharField("Номинальная нагрузка", max_length=100, blank=True)
-    naruzhnyy_razmer_reshetki_lotka = models.CharField("Наружный размер решетки лотка", max_length=100, blank=True)
+    naruzhnyy_razmer_reshetki_lotka = models.CharField("Размер решетки", max_length=100, blank=True)
     ves = models.CharField("Вес", max_length=100, blank=True)
 
     class Meta:
@@ -110,7 +107,6 @@ class VodootvodnyyLotok(Product):
         verbose_name_plural = "Водоотводные лотки"
 
 
-# --- Крышки ---
 class Kryshki(Product):
     TIP_CHOICES = [
         ('Круглая', 'Круглая'),
@@ -130,7 +126,6 @@ class Kryshki(Product):
         verbose_name_plural = "Крышки"
 
 
-# --- Кольца ---
 class Koltsa(Product):
     TIP_CHOICES = [
         ('Стеновое', 'Стеновое'),
@@ -150,7 +145,6 @@ class Koltsa(Product):
         verbose_name_plural = "Кольца"
 
 
-# --- Конусные переходы ---
 class KonusnyePerehody(Product):
     diametr_verhniy = models.CharField("Верхний диаметр", max_length=100, blank=True)
     diametr_nizhniy = models.CharField("Нижний диаметр", max_length=100, blank=True)
