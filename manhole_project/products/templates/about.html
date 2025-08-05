@@ -554,6 +554,145 @@
             height: 60px;
         }
     }
+    
+.certification-section {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.section-title {
+    font-size: 36px;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: var(--text);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.certification-item {
+    background: var(--light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.certification-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.certification-photo {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.certification-caption {
+    padding: 25px;
+    text-align: center;
+}
+
+.certification-caption h3 {
+    font-size: 22px;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.certification-caption p {
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .certification-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certification-photo {
+        height: 250px;
+    }
+    
+    .section-title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .certification-section {
+        padding: 70px 0;
+    }
+    
+    .certification-photo {
+        height: 200px;
+    }
+    
+    .certification-caption {
+        padding: 20px;
+    }
+}
+
+.fullsize-images-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.fullsize-image-wrapper {
+    background: var(--light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--white);
+}
+
+.fullsize-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .fullsize-image-wrapper {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .fullsize-images-container {
+        gap: 30px;
+    }
+    
+    .fullsize-image-wrapper {
+        padding: 10px;
+    }
+}
 </style>
 
 <div class="about-page">
@@ -586,17 +725,14 @@
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                             </svg>
-                            Адреса
+                            Адрес
                         </h3>
                         <div class="contact-info">
                             <div class="contact-row">
                                 <div class="contact-label">Офис:</div>
-                                <div class="contact-value"> г. Ростов-на-Дону ул.Орская 7</div>
+                                <div class="contact-value"> г. Аксай. ул.Садовая 30/5</div>
                             </div>
-                            <div class="contact-row">
-                                <div class="contact-label">Производство:</div>
-                                <div class="contact-value"> г. Азов ул. Переулок Литейный 3</div>
-                            </div>
+                            
                         </div>
                     </div>
                     
@@ -683,18 +819,18 @@
             
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="member-photo" style="background-image: url('{% static 'img/team/ceo.jpg' %}')"></div>
+                    <div class="member-photo" style="background-image: url('{% static 'css/img/5226562071079025403.jpg' %}')"></div>
                     <div class="member-info">
-                        <h3 class="member-name">Иван Петров</h3>
-                        <p class="member-position">Должность</p>
-                        <p class="member-bio">Основатель компании, эксперт в области полимерных материалов с 20-летним опытом.</p>
+                        <h3 class="member-name">Ильдус Атнатуллов</h3>
+                        <p class="member-position">Менеджер-Директор</p>
+                        <p class="member-bio"> Эксперт в области полимерных материалов с 20-летним опытом.</p>
                     </div>
                 </div>
                 
                 <div class="team-member">
                     <div class="member-photo" style="background-image: url('{% static 'img/team/cto.jpg' %}')"></div>
                     <div class="member-info">
-                        <h3 class="member-name">Алексей Смирнов</h3>
+                        <h3 class="member-name">Эльдар Кутуев</h3>
                         <p class="member-position">Должность</p>
                         <p class="member-bio">Автор 15 патентов в области композитных материалов, руководитель R&D отдела.</p>
                     </div>
@@ -703,7 +839,7 @@
                 <div class="team-member">
                     <div class="member-photo" style="background-image: url('{% static 'css/img/lok.png' %}')"></div>
                     <div class="member-info">
-                        <h3 class="member-name">Ольга Иванова</h3>
+                        <h3 class="member-name">Олег Лысенко</h3>
                         <p class="member-position">Должность</p>
                         <p class="member-bio">Обеспечивает бесперебойную работу производства и контроль качества.</p>
                     </div>
@@ -712,7 +848,7 @@
                 <div class="team-member">
                     <div class="member-photo" style="background-image: url('{% static 'img/team/sales.jpg' %}')"></div>
                     <div class="member-info">
-                        <h3 class="member-name">Дмитрий Козлов</h3>
+                        <h3 class="member-name">Сергей Малхасян</h3>
                         <p class="member-position">Должность</p>
                         <p class="member-bio">Развитие дилерской сети и ключевых клиентов по всей России.</p>
                     </div>
@@ -738,6 +874,24 @@
             </div>
         </div>
     </section>
+    <!-- Замените существующий блок certification-section на этот код -->
+<section class="certification-section">
+    <div class="container">
+        <h2 class="section-title">Тестирование ЮГ-ТЕСТ</h2>
+        <p class="section-subtitle">Информационное письмо</p>
+        
+        <div class="fullsize-images-container">
+            <div class="fullsize-image-wrapper">
+                <img src="{% static 'css/img/Снимок экрана 2025-08-04 в 23.33.01.png' %}" alt="Информационное письмо ЮГ-ТЕСТ часть 1" class="fullsize-image">
+            </div>
+            
+            <div class="fullsize-image-wrapper">
+                <img src="{% static 'css/img/Снимок экрана 2025-08-04 в 23.33.22.png' %}" alt="Информационное письмо ЮГ-ТЕСТ часть 2" class="fullsize-image">
+            </div>
+        </div>
+    </div>
+</section>
+
 </div>
 
 <script>

@@ -109,28 +109,28 @@ class VodootvodnyyLotok(Product):
 
 class Kryshki(Product):
     TIP_CHOICES = [
-        ('Круглая', 'Круглая'),
-        ('Квадратная', 'Квадратная'),
-        ('Прямоугольная', 'Прямоугольная'),
+        ('Полимерно-песчаный', 'Полимерно-песчаный'),
+        ('Дно колодца', 'Дно колодца'),
+       
     ]
 
-    tip = models.CharField("Тип крышки", max_length=50, choices=TIP_CHOICES)
-    razmer = models.CharField("Размер", max_length=100, blank=True)
+    tip = models.CharField("Тип колодца", max_length=50, choices=TIP_CHOICES)
+    razmer = models.CharField("Наружный диаметр", max_length=100, blank=True)
     vysota = models.CharField("Высота", max_length=100, blank=True)
-    nominalnaya_nagruzka = models.CharField("Номинальная нагрузка", max_length=100, blank=True)
+    nominalnaya_nagruzka = models.CharField("Вес", max_length=100, blank=True)
     ves = models.CharField("Вес", max_length=100, blank=True)
     material = models.CharField("Материал", max_length=100, blank=True)
 
     class Meta:
-        verbose_name = "Крышка"
-        verbose_name_plural = "Крышки"
+        verbose_name = "Колодец"
+        verbose_name_plural = "Колодца"
 
 
 class Koltsa(Product):
     TIP_CHOICES = [
         ('Стеновое', 'Стеновое'),
         ('Опорное', 'Опорное'),
-        ('Доборное', 'Доборное'),
+        ('Для Колодца', 'Для Колодца'),
     ]
 
     tip = models.CharField("Тип кольца", max_length=50, choices=TIP_CHOICES)
@@ -146,12 +146,12 @@ class Koltsa(Product):
 
 
 class KonusnyePerehody(Product):
-    diametr_verhniy = models.CharField("Верхний диаметр", max_length=100, blank=True)
-    diametr_nizhniy = models.CharField("Нижний диаметр", max_length=100, blank=True)
+    diametr_verhniy = models.CharField("Наружный размер", max_length=100, blank=True)
+    diametr_nizhniy = models.CharField("Внутренний диаметр", max_length=100, blank=True)
     vysota = models.CharField("Высота", max_length=100, blank=True)
-    tolshchina_stenki = models.CharField("Толщина стенки", max_length=100, blank=True)
+    tolshchina_stenki = models.CharField("Толщина крышки", max_length=100, blank=True)
     ves = models.CharField("Вес", max_length=100, blank=True)
-    material = models.CharField("Материал", max_length=100, blank=True)
+    material = models.CharField("Номинальная нагрузка", max_length=100, blank=True)
 
     class Meta:
         verbose_name = "Конусный переход"
