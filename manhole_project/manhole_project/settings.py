@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0y$-nrsv4^y3!r3ym9=taovueul14bax25@9cyu)vnrk-20-^%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']  # Только для разработки!
+ALLOWED_HOSTS = []  
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',  # 👈 Должен быть выше других middleware, кроме SecurityMiddleware
