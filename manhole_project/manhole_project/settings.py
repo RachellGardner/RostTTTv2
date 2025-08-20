@@ -25,12 +25,9 @@ SECRET_KEY = 'django-insecure-0y$-nrsv4^y3!r3ym9=taovueul14bax25@9cyu)vnrk-20-^%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []  
+ALLOWED_HOSTS = []
 
-MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # 👈 Должен быть выше других middleware, кроме SecurityMiddleware
-    # ...
-]
+
 # Application definition
 
 INSTALLED_APPS = [
