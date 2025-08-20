@@ -7,87 +7,6 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Встроенный CSS -->
-    <style>
-        /* === Мобильное бургер-меню === */
-
-        /* Скрываем меню по умолчанию на малых экранах */
-        @media (max-width: 768px) {
-            .header-nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                border-top: 1px solid #e0e0e0;
-                padding: 10px 0;
-                flex-direction: column;
-                gap: 10px;
-                transform: translateY(-10px);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            }
-
-            .header-nav.active {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-
-            /* Стили для бургер-иконки */
-            .mobile-menu-toggle {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 28px;
-                height: 22px;
-                cursor: pointer;
-                z-index: 10;
-            }
-
-            .mobile-menu-toggle span {
-                display: block;
-                height: 2px;
-                width: 100%;
-                background: #000;
-                border-radius: 1px;
-                transition: all 0.3s ease;
-            }
-
-            /* Адаптация контейнера шапки */
-            .header-container {
-                justify-content: space-between;
-            }
-
-            /* Логотип и контакты остаются, меню скрывается */
-            .header-contacts {
-                margin-left: auto;
-            }
-
-            .header-logo {
-                margin-right: 15px;
-            }
-        }
-
-        /* На больших экранах бургер не показываем, меню — горизонтальное */
-        @media (min-width: 769px) {
-            .mobile-menu-toggle {
-                display: none;
-            }
-
-            .header-nav {
-                display: flex !important;
-                position: static !important;
-                transform: none !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                box-shadow: none !important;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Премиальная шапка -->
@@ -106,17 +25,18 @@
                             <path d="M20.01 15.38C18.78 15.38 17.59 15.18 16.48 14.82C16.13 14.7 15.74 14.79 15.47 15.06L13.9 16.63C11.07 15.28 8.72 12.93 7.37 10.1L8.94 8.53C9.21 8.26 9.3 7.87 9.18 7.52C8.82 6.41 8.62 5.22 8.62 3.99C8.62 3.45 8.17 3 7.63 3H4.19C3.65 3 3 3.24 3 3.99C3 13.28 10.73 21 20.01 21C20.72 21 21 20.37 21 19.82V16.37C21 15.83 20.55 15.38 20.01 15.38Z" fill="currentColor"/>
                         </svg>
                         <span>8(863)-504-48-52</span>
+                        
                     </a>
                 </div>
                 <div class="contact-hours">Пн-Пт: 9:00-18:00</div>
             </div>
-
+            
             <nav class="header-nav">
                 <a href="{% url 'home' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">Главная</a>
                 <a href="{% url 'product_list' %}" class="nav-link {% if 'products' in request.path %}active{% endif %}">Каталог</a>
                 <a href="{% url 'about' %}" class="nav-link {% if 'about' in request.path %}active{% endif %}">О компании</a>
             </nav>
-
+            
             <button class="mobile-menu-toggle">
                 <span></span>
                 <span></span>
@@ -148,9 +68,10 @@
                     </svg>
                     <div>
                         <p><strong>Юридический адрес:</strong></p>
-                        <p>г. Аксай. ул.Садовая 30/5</p>
+                        <p>Ростовская область г. Аксай. ул.Садовая 30/5 комната 7</p>
                     </div>
                 </a>
+               
             </div>
             
             <div class="footer-section">
@@ -160,6 +81,8 @@
                         <path d="M20.01 15.38C18.78 15.38 17.59 15.18 16.48 14.82C16.13 14.7 15.74 14.79 15.47 15.06L13.9 16.63C11.07 15.28 8.72 12.93 7.37 10.1L8.94 8.53C9.21 8.26 9.3 7.87 9.18 7.52C8.82 6.41 8.62 5.22 8.62 3.99C8.62 3.45 8.17 3 7.63 3H4.19C3.65 3 3 3.24 3 3.99C3 13.28 10.73 21 20.01 21C20.72 21 21 20.37 21 19.82V16.37C21 15.83 20.55 15.38 20.01 15.38Z" fill="currentColor"/>
                     </svg>
                     <span>8(863)-504-48-52(ПРИЕМНАЯ)</span>
+                 
+                    
                 </a>
                 <a href="mailto:PPE2023@yandex.ru" class="footer-contact">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,18 +104,17 @@
         </div>
     </footer>
 
-    <!-- Встроенный JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Мобильное меню
             const menuToggle = document.querySelector('.mobile-menu-toggle');
             const headerNav = document.querySelector('.header-nav');
-
+            
             if (menuToggle && headerNav) {
                 menuToggle.addEventListener('click', function() {
                     this.classList.toggle('active');
                     headerNav.classList.toggle('active');
-
+                    
                     // Анимация иконки бургера
                     const spans = this.querySelectorAll('span');
                     if (this.classList.contains('active')) {
@@ -206,21 +128,21 @@
                     }
                 });
             }
-
+            
             // Фиксированная шапка с эффектом при скролле
             const header = document.querySelector('.premium-header');
             if (header) {
                 let lastScroll = 0;
-
+                
                 window.addEventListener('scroll', function() {
                     const currentScroll = window.pageYOffset;
-
+                    
                     if (currentScroll <= 0) {
                         header.style.boxShadow = 'none';
                         header.style.transform = 'translateY(0)';
                         return;
                     }
-
+                    
                     if (currentScroll > lastScroll && currentScroll > 100) {
                         // Прокрутка вниз
                         header.style.transform = 'translateY(-100%)';
@@ -230,7 +152,7 @@
                         header.style.transform = 'translateY(0)';
                         header.style.boxShadow = '0 2px 8px rgba(10, 37, 64, 0.08)';
                     }
-
+                    
                     lastScroll = currentScroll;
                 });
             }

@@ -190,27 +190,30 @@
         fill: var(--secondary);
     }
     
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .contact-row {
-        display: flex;
-        align-items: center;
-    }
-    
-    .contact-label {
-        font-weight: 600;
-        color: var(--primary);
-        min-width: 120px;
-    }
-    
-    .contact-value {
-        flex: 1;
-    }
-    
+   .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-row {
+    display: flex;
+    align-items: flex-start; /* изменено с center на flex-start */
+}
+
+.contact-label {
+    font-weight: 600;
+    color: var(--primary);
+    min-width: 120px;
+    padding-top: 3px; /* для выравнивания с первым номером */
+}
+
+.contact-value {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* номера в столбик */
+    gap: 5px; /* отступ между номерами */
+}
     /* Таймлайн истории компании */
     .history-section {
         background: var(--primary);
@@ -700,7 +703,7 @@
     <section class="hero-about">
         <div class="hero-content">
             <h1 class="page-title">О компании</h1>
-            <p class="hero-subtitle">Инновации, качество и надежность с 2006 года</p>
+            <p class="hero-subtitle">Инновации, качество и надежность с 2010 года</p>
         </div>
     </section>
 
@@ -709,7 +712,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>РОСТПОЛИМЕРПРОМ</h2>
+                    <h2>ПОЛИМЕРПРОМЭКСПОРТ</h2>
                     <p>Ведущий российский производитель полимерно-композитных изделий для городской инфраструктуры. Наша компания специализируется на инновационных решениях в сфере производства канализационных люков, смотровых колодцев подземных инженерных коммуникаций и систем водоотведения.</p>
                     
                     <p>Мы создаем продукцию, которая превосходит традиционные аналоги по ключевым параметрам: легкость монтажа, коррозионная стойкость, долговечность и экономическая эффективность. Наши изделия выдерживают экстремальные температуры от -60°C до +60°C.</p>
@@ -730,7 +733,7 @@
                         <div class="contact-info">
                             <div class="contact-row">
                                 <div class="contact-label">Офис:</div>
-                                <div class="contact-value"> г. Аксай. ул.Садовая 30/5</div>
+                                <div class="contact-value"> г. Аксай. ул.Садовая 30/5 комната 7</div>
                             </div>
                             
                         </div>
@@ -746,7 +749,12 @@
                         <div class="contact-info">
                             <div class="contact-row">
                                 <div class="contact-label">Телефон:</div>
-                                <div class="contact-value">8(863)-504-48-52(ПРИЕМНАЯ)</div>
+                                <div class="contact-value"> 
+                                    <span>8(863)-504-48-52(ПРИЕМНАЯ)</span>
+                                    <span >+7(909)-428-45-55</span>
+                                    <span>+7(961)-288-79-79 </span>
+                                </div>
+                                
                             </div>
                             <div class="contact-row">
                                 <div class="contact-label">Email:</div>
@@ -754,7 +762,7 @@
                             </div>
                             <div class="contact-row">
                                 <div class="contact-label">Часы работы:</div>
-                                <div class="contact-value">Пн-Пт: 8:00-17:00</div>
+                                <div class="contact-value">Пн-Пт: 9:00-18:00</div>
                             </div>
                         </div>
                     </div>
@@ -770,7 +778,7 @@
             
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-year">2006</div>
+                    <div class="timeline-year">2010</div>
                     <div class="timeline-content">
                         <h3 class="timeline-title">Основание компании</h3>
                         <p>Создание производства полимерных изделий в Ростове. Первая партия люков для частного сектора.</p>
@@ -778,15 +786,15 @@
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-year">2007</div>
+                    <div class="timeline-year">2010</div>
                     <div class="timeline-content">
                         <h3 class="timeline-title">Сертификация продукции</h3>
-                        <p>Получение полного пакета сертификатов соответствия. Начало поставок для муниципальных нужд.</p>
+                        <p>Прохождение тестов в ЮГ-ТЕСТ.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-year">2008</div>
+                    <div class="timeline-year">2011</div>
                     <div class="timeline-content">
                         <h3 class="timeline-title">Технологический прорыв</h3>
                         <p>Внедрение инновационной технологии армирования полимеров. Увеличение нагрузочной способности продукции на 40%.</p>
@@ -822,7 +830,7 @@
                     <div class="member-photo" style="background-image: url('{% static 'css/img/5226562071079025403.jpg' %}')"></div>
                     <div class="member-info">
                         <h3 class="member-name">Ильдус Атнатуллов</h3>
-                        <p class="member-position">Менеджер-Директор</p>
+                        <p class="member-position">Директор</p>
                         <p class="member-bio"> Эксперт в области полимерных материалов с 20-летним опытом.</p>
                     </div>
                 </div>
@@ -831,7 +839,7 @@
                     <div class="member-photo" style="background-image: url('{% static 'css/img/photo.png' %}')"></div>
                     <div class="member-info">
                         <h3 class="member-name">Эльдар Кутуев</h3>
-                        <p class="member-position">Должность</p>
+                        <p class="member-position">Менеджер</p>
                         <p class="member-bio">Автор 15 патентов в области композитных материалов, руководитель R&D отдела.</p>
                     </div>
                 </div>
@@ -840,7 +848,7 @@
                     <div class="member-photo" style="background-image: url('{% static 'css/img/photo.png' %}')"></div>
                     <div class="member-info">
                         <h3 class="member-name">Олег Лысенко</h3>
-                        <p class="member-position">Должность</p>
+                        <p class="member-position">Менеджер</p>
                         <p class="member-bio">Обеспечивает бесперебойную работу производства и контроль качества.</p>
                     </div>
                 </div>
@@ -849,7 +857,7 @@
                     <div class="member-photo" style="background-image: url('{% static 'css/img/photo.png' %}')"></div>
                     <div class="member-info">
                         <h3 class="member-name">Сергей Малхасян</h3>
-                        <p class="member-position">Должность</p>
+                        <p class="member-position">Менеджер</p>
                         <p class="member-bio">Развитие дилерской сети и ключевых клиентов по всей России.</p>
                     </div>
                 </div>
@@ -857,23 +865,7 @@
         </div>
     </section>
 
-    <!-- Инновационный блок с технологиями -->
-    <section class="tech-section">
-        <div class="container">
-            <div class="tech-content">
-                <h2 class="tech-title">Наши технологии</h2>
-                <p class="tech-text">Мы используем передовые методы производства и уникальные полимерные композиции, разработанные совместно с ведущими научными институтами страны.</p>
-                
-                <div class="tech-video">
-                    <div class="play-button">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <!-- Замените существующий блок certification-section на этот код -->
 <section class="certification-section">
     <div class="container">
