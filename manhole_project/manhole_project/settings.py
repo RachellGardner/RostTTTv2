@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0y$-nrsv4^y3!r3ym9=taovueul14bax25@9cyu)vnrk-20-^%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['prompolimerexport.ru', 'www.prompolimerexport.ru']
 
